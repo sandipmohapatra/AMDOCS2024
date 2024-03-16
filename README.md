@@ -1,0 +1,7 @@
+# AMDOCS2024
+
+SANDIP MOHAPATRA
+
+sandipmohapatra123@gmail.com
+
+9777237288
