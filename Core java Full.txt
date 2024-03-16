@@ -1,0 +1,4885 @@
+Java 1.8 features
+--------------------------
+1)Java is Object Oriented programming Language.
+2)Java is simpler then c and c++ as we don't have pointer concept,Multiple Inheritance,operator overloading.
+3)Java supports multi-threading or multi-tasking.
+4)We can develop web-application,network application,standalone application and also mobile application.
+5)In java we interface which support the concept of multiple inheritance.
+6)In java we have constructor but no destructor.There is automatic garbage clearance.
+7)java is secured language.we have 4 access specifier private,public,protected,default.
+
+------------------------------------------
+Data types
+---------------------------------------------------------
+primative datatype
+-------------------------
+1)byte - 1 byte
+2)short - 2 bytes
+3)int - 4 bytes
+4)long - 8 bytes
+5)char - 2 bytes
+6)boolen - 1 bit
+7)float - 4 bytes
+8)double - 8 bytes
+-----------------------------------------
+derived datatype
+----------------------------
+1)String
+2)array
+----------------------------------------
+Operator
+-------------------
+1)unary :-i++,++i,i--,--i
+
+2)binary :-
+i)arithmatic :- +,-,*,/,%(modules)
+ii)comparative :- <,>,<=,>=
+iii)assignment :- =,!=
+iv)bitwise :- >>,<<
+3)ternary :- :,?
+--------------------------------------
+we have 4 access specifier private,public,protected,default.
+
+1)private :- if we declare variable and methods as private we can access it within the class only.
+2)public :- if we declare variable and methods as public we can access it within the class,outside the class and also outside the package.
+3)protected :- if we declare variable and methods as protected we can access it within the class and also outside the child class.
+4)default :- if we declare variable and methods as default we can access it within the class ,out side the class but not outside the package.
+------------------------------------------------------------------------------------------------------------------------
+program-1
+----------------
+package monday;
+
+public class First
+{
+public static void main(String[] args) 
+{
+System.out.println("Welcome to JDK1.8");	
+}
+}
+-------------------------------------------------
+program-2
+----------------------
+package monday;
+
+public class First
+{
+public static void main(String[] args) 
+{
+byte a=10;
+short b=20;
+int c=30;
+long d=40;
+float e=5.6f;
+double f=6.7;
+String g="apple";
+char h='a';
+System.out.println(a+" "+b+" "+c);
+System.out.println(d+" "+e+" "+f);
+System.out.println(g+" "+h);
+}
+}
+----------------------------------------------------------------
+Class :- A class is a known as object framework.
+A class contains variables and methods.
+---------------------------------------------------------------------
+Object is a reference pointer to the class.
+We can access the variables and methods of a class using Object.
+------------------------------------------------------------------------------
+program-3
+---------------------
+package monday;
+import java.lang.*;
+import java.util.*;
+public class First
+{
+int empno;
+String name,address;
+void input()
+{
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter empno,name,address");
+	empno=ob.nextInt();
+	name=ob.next();
+	address=ob.next();
+}
+void display()
+{
+System.out.println("the empno is "+empno);	
+System.out.println("the emp name  is "+name);	
+System.out.println("the emp address is "+address);	
+}
+public static void main(String[] args) {
+	First obj=new First();
+	obj.input();
+	obj.display();
+}
+}
+
+----------------------------------------------------------------------------------
+Question-1
+wap to enter a student data and display it.
+rollno,name,physics,chem,maths marks.
+-------------------------------------------------------------------------
+Program-4
+---------------------
+package monday;
+import java.lang.*;
+import java.util.*;
+public class First
+{
+int rollno;
+String name,address;
+float phy,chem,math,total;
+void input()
+{
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter rollno,name,address,phy,chem,math");
+	rollno=ob.nextInt();
+	name=ob.next();
+	address=ob.next();
+	phy=ob.nextFloat();
+	chem=ob.nextFloat();
+	math=ob.nextFloat();
+}
+void display()
+{
+System.out.println("the rollnono is "+rollno);	
+System.out.println("the name  is "+name);	
+System.out.println("the address is "+address);	
+System.out.println("phy"+phy+" chem"+chem+"math"+math);
+System.out.println("the total is "+(phy+chem+math));
+}
+public static void main(String[] args) {
+	First obj=new First();
+	obj.input();
+	obj.display();
+}
+}
+
+----------------------------------------------------------------------------------------------------
+Constructor
+-----------------------------
+A constructor is a method which has the same name as that of the class name.
+It doesnot return any value.it doesnot have any return type.
+There are 2 types of constructor
+1)default constructor :- it is without any parameter.
+2)parameterized constructor :- it is with parameter.
+To access a constructor we require an object.
+-----------------------------------------------------
+program-5
+--------------------
+package monday;
+import java.util.*;
+class first
+{
+int rollno;//intance variable
+String name,address;
+first()
+{
+	System.out.println("this is a default constructor which is without any parameter");
+}
+first(int rollno,String name,String address)//local variable
+{
+	this.rollno=rollno;//to differenciate between intance variable and local variable we use this
+	this.name=name;//keyword.
+	this.address=address;
+}
+void display()
+{
+	System.out.println("the rollno is "+rollno);
+	System.out.println("the name is "+name);
+	System.out.println("the address is "+address);
+	}
+}
+class second
+{
+public static void main(String[] args) {
+	first ob=new first();
+	first ob1=new first(101,"ajay","bangalore");
+	first ob2=new first(102,"trupti","orissa");
+	ob1.display();ob2.display();
+}
+}
+-------------------------------------------------------------
+Difference between constructor and a method.
+-----------------------------------------------------------------
+1)a method can have any name but a constructor will have only the class name .
+2)a method returns a value but constructor doesnot return any value.
+----------------------
+program-6
+---------------------
+package monday;
+import java.util.*;
+class first
+{
+int rollno;//intance variable
+String name,address;
+first()
+{
+	System.out.println("this is a default constructor which is without any parameter");
+}
+first(int rollno,String name,String address)//local variable
+{
+	this.rollno=rollno;//to differenciate between intance variable and local variable we use this
+	this.name=name;//keyword.
+	this.address=address;
+}
+void display()
+{
+	System.out.println("the rollno is "+rollno);
+	System.out.println("the name is "+name);
+	System.out.println("the address is "+address);
+	}
+int sum(int a,int b) //method overloading
+{
+	return a+b;
+}
+float sum(float a,float b)
+{
+	return a+b;
+}
+}
+class second
+{
+public static void main(String[] args) {
+	first ob=new first();
+	first ob1=new first(101,"ajay","bangalore");
+	first ob2=new first(102,"trupti","orissa");
+	ob1.display();ob2.display();
+	System.out.println(ob1.sum(6, 6));//compiler will decide where to send the value
+	System.out.println(ob1.sum(6.5f, 6.3f));
+	
+}
+}
+-----------------------------------------------------------------------
+Question-2
+wap to create a parameterized constractor .pass the values and display it.
+employee :- empno,name,designation,salary.
+-------------------------------------------------------------------------------------------------------------
+program-7
+---------------------
+package monday;
+import java.util.*;
+class first1
+{
+int empno;//intance variable
+String name,address;
+first1()
+{
+	System.out.println("this is a default constructor which is without any parameter");
+}
+first1(int rollno,String name,String address)//local variable
+{
+	this.empno=rollno;
+	this.name=name;
+	this.address=address;
+}
+void display()
+{
+	System.out.println("the rollno is "+empno);
+	System.out.println("the name is "+name);
+	System.out.println("the address is "+address);
+	}
+
+}
+class second2
+{
+public static void main(String[] args) {
+	first1 ob=new first1();
+	first1 ob1=new first1(101,"ajay","bangalore");
+	first1 ob2=new first1(102,"trupti","orissa");
+	ob1.display();ob2.display();
+	
+}
+}
+------------------------------------------------------------------------------------
+setter() is used to set the values
+getter() is used to get the values
+-----------------------------------------------------------------
+program-8
+-----------------------
+package monday;
+
+public class Employee 
+{
+int empno;
+String name,designation;
+float salary;
+//right click >source >generate getter and setter
+public int getEmpno() {
+	return empno;
+}
+public void setEmpno(int empno) {
+	this.empno = empno;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getDesignation() {
+	return designation;
+}
+public void setDesignation(String designation) {
+	this.designation = designation;
+}
+public float getSalary() {
+	return salary;
+}
+public void setSalary(float salary) {
+	this.salary = salary;
+}
+
+
+}
+------------------------------------------------------------
+package Wednesday;
+
+public class Student 
+{
+int rollno;
+String name,email;
+public int getRollno() {
+	return rollno;
+}
+public void setRollno(int rollno) {
+	this.rollno = rollno;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getEmail() {
+	return email;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
+
+}
+--------------------------------------------------------------------------
+package Tuesday;
+import Wednesday.Student;
+import monday.Employee;
+public class Test 
+{
+public static void main(String[] args)
+{
+	Employee ob=new Employee();
+	ob.setEmpno(101);
+	ob.setName("Trupti");
+	ob.setDesignation("software eng");
+	ob.setSalary(45000.50f);
+	System.out.println(ob.getEmpno());
+	System.out.println(ob.getName());
+	System.out.println(ob.getSalary());
+	System.out.println(ob.getDesignation());
+	Student ob1=new Student();
+	ob1.setRollno(102);
+	ob1.setName("Madhu");
+	ob1.setEmail("Madhu@gmail.com");
+	System.out.println(ob1.getRollno());
+	System.out.println(ob1.getName());
+	System.out.println(ob1.getEmail());
+}
+}
+
+---------------------------------------------------------------------------------------------
+Program-9
+-------------------
+package Tuesday;
+import java.util.*;
+public class ArrayDemo 
+{
+public static void main(String[] args) 
+{
+Scanner ob=new Scanner(System.in);
+System.out.println("enter 5 nos");
+int a[]=new int[5];
+for(int i=0;i<5;i++)
+	a[i]=ob.nextInt();
+
+System.out.println("the 5 nos are");
+for(int i=0;i<5;i++)
+	System.out.println(a[i]);
+}
+}
+----------------------------------------------------------
+Program-10
+--------------------
+package Tuesday;
+import java.util.*;
+public class Student1 
+{
+	String rollno,name,address;
+	void input()
+	{
+		Scanner ob=new Scanner(System.in);
+		System.out.println("Enter rollno,name,address");
+		rollno=ob.nextLine();//it excepts space in between
+		name=ob.nextLine();
+		address=ob.nextLine();
+	}
+	void display()
+	{
+		System.out.println("the rollno is "+rollno);
+		System.out.println("the name is "+name);
+		System.out.println("the address is "+address);
+	}
+	public static void main(String[] args) {
+		Student1[] obj=new Student1[3];
+		for(int i=0;i<3;i++)
+		{
+			System.out.println("enter data of student no"+(i+1));
+			obj[i]=new Student1();
+			obj[i].input();
+		}
+		for(int i=0;i<3;i++)
+		{
+			System.out.println("data of student no"+(i+1));
+			obj[i].display();
+		}
+
+	}
+}
+----------------------------------------------------------------------
+question-3
+create a bank class 
+accno,name,email,Balance for 20 customers.
+store the data and display it.
+-------------------------------------------------------------------------------
+Inheritance
+----------------------
+It is one of the oops concept
+Reuse of existing code.and we can add some more features to it.
+example :- iPhone10 to iPhone11 some new features are add to the older version.
+There are 5 types of Inheritance.
+1)single Inheritance
+2)multi-level Inheritance
+3)hyrarchal Inheritance
+----------------------Java doesn't support---------------------------------
+4)multiple inheritance
+5)Hybrid inheritance(combination)
+------------------------------------------------------------------------------------
+we use the keyword extends to inherite the parent class into the child class.
+we use the keyword super to access the parent class variables and methods into the child class.
+-------------------------------------------------------------------------------------
+Program-11
+------------------------
+package Tuesday;
+import java.util.*;
+public class Student 
+{
+int rollno;
+String name,address;
+void input()
+{
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter rollno,name,address");
+	rollno=ob.nextInt();
+	name=ob.next();
+	address=ob.next();
+}
+void display()
+{
+	System.out.println("the rollno is"+rollno+"the name is "+name+"the address is "+address);
+}
+}
+--------------------------------------------------------
+package Tuesday;
+import java.util.*;
+public class Marks extends Student
+{
+int phy,chem,math,total,avg;
+String grade;
+void input()
+{
+	super.input();
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter phy,chem,math marks");
+	phy=ob.nextInt();
+	chem=ob.nextInt();
+	math=ob.nextInt();
+	total=phy+chem+math;
+	avg=total/3;
+	if(avg>70)
+		grade="First Grade";
+	else if(avg>60)
+		grade="Second Grade";
+	else if(avg>50)
+		grade="Third Grade";
+	else
+		grade="Fail";
+}
+void display()
+{
+	super.display();
+	System.out.println("the total is "+total);
+	System.out.println("the average is "+avg);
+	System.out.println("The grade is "+grade);
+}
+public static void main(String[] args)
+{
+	Marks ob=new Marks();
+	ob.input();
+	ob.display();
+}
+}
+--------------------------------------------------------------------------------
+wap to create a multi-level Inheritance
+employee class :-empno,name,address
+dept class:- loc,designation,dept
+salary class :- salary,Hra,Itax
+display the employee details
+-----------------------------------------------------------------------------
+How to use constructor during inheritance.
+--------------------------------------------------------------------
+program-12
+----------------------------
+package Tuesday;
+public class Student 
+{
+int rollno;
+String name,address;
+Student(int rollno,String name,String address)
+{
+	this.rollno=rollno;
+	this.name=name;
+	this.address=address;
+}
+void display()
+{
+	System.out.println("the rollno is"+rollno+"the name is "+name+"the address is "+address);
+}
+}
+
+-------------------------------------------------------------------------------------------
+package Tuesday;
+import java.util.*;
+public class Marks extends Student
+{
+int phy,chem,math,total,avg;
+String grade;
+Marks(int rollno,String name,String address,int phy,int chem,int math)
+{
+	super(rollno,name,address);
+	this.phy=phy;
+	this.chem=chem;
+	this.math=math;
+	total=phy+chem+math;
+	avg=total/3;
+	if(avg>=70)
+		grade="First Grade";
+	else if(avg>=60)
+		grade="Second Grade";
+	else if(avg>=50)
+		grade="Third Grade";
+	else
+		grade="Fail";
+}
+void display()
+{
+	super.display();
+	System.out.println("the total is "+total);
+	System.out.println("the average is "+avg);
+	System.out.println("The grade is "+grade);
+}
+public static void main(String[] args)
+{
+	Marks ob=new Marks(101,"sandip","Bangalore",77,88,66);
+	ob.display();
+}
+}
+--------------------------------------------------------------------------------------------
+program-13
+-------------------------
+package Tuesday;
+public class Student 
+{
+int rollno;
+String name,address;
+Student(int rollno,String name,String address)
+{
+	this.rollno=rollno;
+	this.name=name;
+	this.address=address;
+}
+void display()
+{
+	System.out.println("the rollno is"+rollno+"the name is "+name+"the address is "+address);
+}
+}
+-------------------------------------------------
+package Tuesday;
+import java.util.*;
+public class Marks extends Student
+{
+int phy,chem,math,total,avg;
+String grade;
+Marks(int rollno,String name,String address,int phy,int chem,int math)
+{
+	super(rollno,name,address);
+	this.phy=phy;
+	this.chem=chem;
+	this.math=math;
+	total=phy+chem+math;
+	avg=total/3;
+	if(avg>=70)
+		grade="First Grade";
+	else if(avg>=60)
+		grade="Second Grade";
+	else if(avg>=50)
+		grade="Third Grade";
+	else
+		grade="Fail";
+}
+void display()
+{
+	super.display();
+	System.out.println("the total is "+total);
+	System.out.println("the average is "+avg);
+	System.out.println("The grade is "+grade);
+}
+
+}
+----------------------------------------------------------------------
+package Tuesday;
+
+public class Address extends Marks
+{
+	String loc;
+	Address(int rollno, String name, String address, int phy, int chem, int math,String loc) 
+	{
+		super(rollno, name, address, phy, chem, math);
+	this.loc=loc;
+	}
+void display()
+{
+	super.display();
+	System.out.println("the location is "+loc);
+}
+public static void main(String[] args) {
+	Address ob=new Address(1001,"sandip","Bangalore",77,77,55,"north bangalore");
+	ob.display();
+}
+}
+-------------------------------------------------------------------------
+*super constructor will execute first.
+-----------------------------------------------------------------------
+In inheritance the child class will depend upon the parent class.It is known as tight coupling.
+Java supports loose coupling.
+Inheritance(IS-A) relationship.
+Aggregation(HAS-A) relationship.
+example:-
+Employee has-a address
+Bank has-a customer
+-------------------------------------------------------------------------------------
+program-14
+---------------------
+package Wednesday;
+
+public class Employee
+{
+int empno;
+String name,phoneno;
+Address address;
+public Employee(int empno, String name, String phoneno, Address address) {
+	this.empno = empno;
+	this.name = name;
+	this.phoneno = phoneno;
+	this.address = address;
+}
+void display()
+{
+	System.out.println("empno :"+empno+"Name :"+name+"phone no :"+phoneno+"address :"+address);
+}
+}
+----------------------------------------------------------------
+package Wednesday;
+
+public class Address
+{
+int streetno,roadno;
+String city,state;
+public Address(int streetno, int roadno, String city, String state)
+{
+	this.streetno = streetno;
+	this.roadno = roadno;
+	this.city = city;
+	this.state = state;
+}
+
+@Override
+public String toString() {
+	return "Address [streetno=" + streetno + ", roadno=" + roadno + ", city=" + city + ", state=" + state + "]";
+}
+
+public static void main(String[] args) 
+{
+	Address address=new Address(10,20,"Bangalore","Karnataka");
+	Employee emp=new Employee(101,"sandip","7766554433",address);
+	emp.display();
+}
+}
+---------------------------------------------------------------------------------------------------
+wap to enter details of a (HAS-A)
+Bank has-a customer
+bank :- accno,branch,balance,customer(object of the customer class)
+Customer :- custid,name,address
+--------------------------------------------------------------------
+Method Overloading:-
+Method Overriding:-
+Abstract class
+Interface
+static keyword
+final keyword
+-----------------------------------------------------------------------------------------------------------------
+polymorphism:-
+Method Overloading :- compile time Polymerphism.we need one class.
+The method name is same but the return type and parameter has different data type.
+example:-
+int sum(int a,int b);
+float sum(float a,float b);
+--------------------------------------------------------
+program-15
+-------------------
+package Wednesday;
+
+public class MethodOverloading 
+{
+int sum(int a,int b)
+{
+	return a+b;
+}
+int sum(int a,int b,int c)
+{
+	return a+b+c;
+}
+float sum(float a,float b)
+{
+	return a+b;
+}
+double sum(double a,double b)
+{
+	return a+b;
+}
+public static void main(String[] args) {
+	MethodOverloading ob=new MethodOverloading();
+	System.out.println("the sum is "+ob.sum(6, 7));
+	System.out.println("the sum is "+ob.sum(6,7,8));
+	System.out.println("the sum is "+ob.sum(6.5f, 7.3f));
+	System.out.println("the sum is "+ob.sum(6.53, 7.32));
+		}
+}
+
+------------------------------------------------------------------------------------------------------
+Method Overriding:- runtime Polymerphism.(abstract class,Interface).we need two or more class.
+------------------------------------------------------------------------------------------------------
+program-16
+---------------------
+package Wednesday;
+class Parent
+{
+void display()
+{
+	System.out.println("This is a parent class");
+}
+}
+public class MethodOverriding extends Parent
+{
+	void display()
+	{
+		System.out.println("this is new display method");
+	}
+	public static void main(String[] args) 
+	{
+		MethodOverriding ob=new MethodOverriding();
+		ob.display();
+	}
+}
+
+-----------------------------------------------------------------
+Here in the parent class we have the display().
+In the child class we have display().We are creating object of the child class.
+The child class display() is overriding on the parent class display().The parent class display() is hidden.
+----------------------------------------------------------------------------
+Abstract class
+------------------------
+It is a class which contain abstract method means method without body.
+It can also contain method with body known as concret method.
+we cannot create object of the abstract class.
+we have to inherite it into a child class where we have to override the abstract methods.
+Then we can create object for the child class.
+We cannot have a method without body .we have to declare it as abstract or it should be inside the interface.
+What is the use of abstract class.
+It contains some abstract methods which has to be overriden inside the child class.
+We can have a constructor in the abstract class.
+*abstract windowing toolkit(AWT)
+
+-------------------------------------------------------------------
+program-17
+------------------
+package Wednesday;
+abstract class Abstract1
+{
+Abstract1()
+{
+	System.out.println("this is a constractor");
+}
+abstract void display();
+int sum(int a,int b)
+{
+	return a+b;
+}
+}
+class AbstractDemo extends Abstract1
+{
+	@Override
+	void display() 
+	{
+		System.out.println("This is display");
+		}
+	public static void main(String[] args) {
+		AbstractDemo ob=new AbstractDemo();
+		System.out.println("the sum is "+ob.sum(6, 3));
+		ob.display();
+	}
+}
+-----------------------------------------------------------------------------
+Program-18
+---------------------
+package Wednesday;
+abstract class Abstract1
+{
+Abstract1()
+{
+	System.out.println("this is a constractor");
+}
+Abstract1(int a,int b)
+{
+	System.out.println("the sum of super constrctor is "+(a+b));
+}
+abstract void display();
+int sum(int a,int b)
+{
+	return a+b;
+}
+}
+class AbstractDemo extends Abstract1
+{
+	AbstractDemo()
+	{
+		super();
+	}
+	AbstractDemo(int a,int b)
+	{
+		super(a,b);
+	}
+	@Override
+	void display() 
+	{
+		System.out.println("This is display");
+		}
+	public static void main(String[] args) {
+		AbstractDemo ob=new AbstractDemo(7,8);
+		AbstractDemo ob1=new AbstractDemo();
+		System.out.println("the sum is "+ob.sum(6, 3));
+		ob.display();
+	}
+}
+--------------------------------------------------------------------------
+Create a abstract class bank 
+having abstract methods register(),apply for loan,credit card,dedit card.
+create a child class customer .override all the methods and create object.
+--------------------------------------------------------------------------------------------
+Interface:-
+It is similar to abstract class but it only contains abstract methods no concrete methods.we don't use the keyword abstract in this.
+We cannot create object for an interface.
+We have to implement the interface into a child class.
+We have to override the abstract methods into a child class and create object for the child class.
+By interface java performs the multiple Inheritance.
+we can declare a variable inside a interface .this is by default static(we can access it without object )
+and final(cann't be changed)
+--------------------------------------------------------------------------------------------------
+progarm-19
+-----------------------
+package Wednesday;
+ interface Interface1
+ {
+void display1();
+}
+ interface Interface2 extends Interface1
+ {
+void display2();
+}
+ interface Interface3
+ {
+void display3();
+}
+ interface Interface4 
+ {
+void display4();
+}
+ class InterfaceDemo implements Interface2,Interface3,Interface4
+ {
+	@Override
+	public void display1() {
+				System.out.println("display1");	 }
+	@Override
+	public void display4() {
+		System.out.println("display4");		}
+	@Override
+	public void display3() {
+		System.out.println("display3");			}
+	@Override
+	public void display2() {
+		System.out.println("display2");
+			}
+	 public static void main(String[] args) {
+		 InterfaceDemo ob=new InterfaceDemo();
+	ob.display1(); ob.display2(); ob.display3();  ob.display4();
+	}
+ }
+ -------------------------------------------------------------------------------------------------------------------
+ program-20
+-------------------------
+package Wednesday;
+ interface Interface1
+ {
+	 int a=10;//this is by default static(we can access it without object and final(cann't be changed)
+void display1();
+}
+ interface Interface2 extends Interface1
+ {
+void display2();
+}
+ interface Interface3
+ {
+void display3();
+}
+ interface Interface4 
+ {
+void display4();
+}
+ class InterfaceDemo implements Interface2,Interface3,Interface4
+ {
+	@Override
+	public void display1() {
+				System.out.println("display1");	 }
+	@Override
+	public void display4() {
+		System.out.println("display4");		}
+	@Override
+	public void display3() {
+		System.out.println("display3");			}
+	@Override
+	public void display2() {
+		System.out.println("display2");
+			}
+	 public static void main(String[] args)
+	 {
+		 System.out.println("the value of a is "+a);
+		 InterfaceDemo ob=new InterfaceDemo();
+		 ob.display1(); ob.display2(); ob.display3();  ob.display4();
+	}
+ }
+ -----------------------------------------------------------------------------------------------------------------------
+ static :- we can declare a variable as static,method as static,we can have static block and we can have static class.
+We can access it without creating an object.
+We can access it with the help of the class name.
+A single copy of the static variable,method,block or class is created in the JVM.
+It is used for memory management.
+If we declare a static block it execute before the main method.
+---------------------------
+progarm-21
+---------------------------
+package Wednesday;
+public class StaticDemo 
+{
+static int rollno=10;
+static String name="trupti";
+static String address="orissa";
+static void display()
+{
+	System.out.println(rollno+ " "+name+"  "+address);
+}
+static
+{
+	System.out.println("This is a static block");
+}
+public static void main(String[] args)
+{
+System.out.println("rollno is "+rollno);	
+System.out.println("the name is "+StaticDemo.name);
+System.out.println("the address is"+StaticDemo.address);
+display();
+StaticDemo.display();
+}}
+ ----------------------------------------------------------------------------------------------
+ we cannot access a non-static variables inside a static method.
+we can access static variables inside a non-static method.
+program-22
+----------------------
+package Wednesday;
+public class StaticDemo 
+{
+static int rollno=10;
+static String name="trupti";
+ static String address="orissa";
+static void display()//we cannot access a non-static variable inside a static method.
+{
+	System.out.println(rollno+ " "+name+"  "+address);
+}
+static 
+{
+	System.out.println("This is a static block");
+}
+public static void main(String[] args)//we cannot access a non-static variable inside a static method.
+{
+System.out.println("rollno is "+rollno);	
+System.out.println("the name is "+StaticDemo.name);
+System.out.println("the address is"+StaticDemo.address);
+display();
+StaticDemo.display();
+}}
+--------------------------------------------------------
+Once incremented the static variable value remain incremented.
+ program-23
+--------------------------
+
+package Wednesday;
+public class StaticDemo 
+{
+static int rollno=10;
+static String name="trupti";
+ static String address="orissa";
+ static int i;
+static void display()//we cannot access a non-static variable inside a static method.
+{
+	System.out.println(rollno+ " "+name+"  "+address);
+}
+static void counter()
+{
+	i++;
+	System.out.println(i);
+}
+static 
+{
+	System.out.println("This is a static block");
+}
+public static void main(String[] args)//we cannot access a non-static variable inside a static method.
+{
+System.out.println("rollno is "+rollno);	
+System.out.println("the name is "+StaticDemo.name);
+System.out.println("the address is"+StaticDemo.address);
+display();
+StaticDemo.display();
+counter();
+counter();
+counter();
+counter();
+}}
+----------------------------------------------------------------------------------------------------
+ final keyword
+-------------------------
+This is a done to protect the data.
+We can declare the variable as final,method as final and class as final.
+If we declare variable as final we have to assign it and it cannot be changed.
+If we declare method as final we cannot override it.
+If we declare a class as final we cannot inherite it.
+--------------------------------------------------------------------------------------------------
+program-24
+-----------------------
+package Wednesday;
+public final class FinalDemo 
+{
+final int a=10;
+final void display()
+{
+	System.out.println("this is final display");
+}
+public static void main(String[] args) {
+	FinalDemo ob=new FinalDemo();
+	ob.display();
+	System.out.println("the value of a is"+ob.a);
+}
+}
+------------------------------------------------------------------------------ 
+ create an interface employee :- 
+input details(empno,name,address);
+display details();
+-------------------------------------------------
+create an interface dept:-
+input deatils(deptno,name,loc)
+display deatils();
+------------------------------------------------------
+create a child class to take input and display the details
+--------------------------------------------------------------------------------------
+static class:- It is used in the case of inner class.A inner class can be static.
+syntax:-
+class outer 
+{
+static int rollno=20;
+static class inner
+{
+}
+main
+{
+outer.inner obj=new outer.inner();
+}}
+---------------------------------------------------------------
+program-25
+------------------------
+package Thrusday;
+
+public class OuterClass 
+{
+static int rollno=10;//class variable,global variables can be accessed anywhere within the program
+static String name="sandip";
+static class inner
+{
+	void display()
+	{
+		System.out.println("The rollno is "+rollno);
+		System.out.println("The name is "+name);
+	}
+}
+public static void main(String[] args) 
+{
+OuterClass.inner obj=new OuterClass.inner();
+obj.display();
+}
+}
+------------------------------------------------------------------
+we can take the class as public or default.
+we cannot declare the class as private or protected.
+Because the class has to be accessed by the JVM which is out side the class.
+JVM can access default or public access specifier.
+-------------------------------------------------------------------------
+Wrapper class
+----------------------
+All datatypes in java are also class known as wrapper class.
+1)byte -Byte
+2)short - Short
+3)int - Integer
+4)float - Float
+5)double - Double
+6)String
+7)long - Long
+8)char - Character
+9)boolean - Boolean
+These class belongs to lang package.It is a default package.
+---------------------------------------------------------------------
+javap java.lang package ---->Integer
+javap java.lang.String
+javap java.lang.Object -------super class in java.
+------------------------------------------------------------------ 
+program-26
+----------------------
+package Thrusday;
+public class Test1
+{
+public static void main(String h[]) 
+{
+String a=h[0];
+String b=h[1];
+String c=h[2];
+int x=Integer.parseInt(a);
+int y=Integer.parseInt(b);
+int z=Integer.parseInt(c);
+int sum=x+y+z;
+System.out.println("the sum is "+sum);
+}
+}
+--------------------------------------------------------------------
+package Thrusday;
+public class Test1
+{
+public static void main(String h[]) 
+{
+String a=h[0];
+String b=h[1];
+String c=h[2];
+float x=Float.parseFloat(a);
+float y=Float.parseFloat(b);
+float z=Float.parseFloat(c);
+float sum=x+y+z;
+System.out.println("the sum is "+sum);
+}
+}
+----------------------------------------------------------
+public static void main(String h[]) 
+
+public is a access specifier so that JVM can access the main method which is outside the package.
+static is used so that we can access static variables and methods inside it.and we need not create object of the main()
+void is the return type.
+main is the keyword for making the method as main.
+(String h[]) -- we can pass string arguments inside it.
+---------------------------------------------------------------------------------------------
+constructor :-
+First obj=new First();
+First is the class name.
+obj is the reference pointer to the class.
+new is a keyword which creates the memory block for storing the data.
+First() is a default constructor.
+-------------------------------------------------------------------------------------------------------------
+Exception Handling
+------------------------------
+There are 3 type of error.
+1)compile time error.(manually)
+2)logical error(manually)
+3)runtime error.
+In exception handling we will discuss about only runtime error.
+example:-
+-------------------
+1)dividing a number by zero.
+2)crossing the array limit.
+3)entering a character in place to number.
+The aim of exception handling is we don't want the program to terminate in between.
+The program should display an error message but the flow of the program should be till the end.
+----------------------------------------------------------------------------
+There are 5 keywords used to handle the runtime errors.
+1)try
+2)catch
+3)finally
+4)throw
+5)throws
+------------------------------------------------------------------------------------------------
+program-27
+----------------------
+//The main purpose is to run the program till the end
+//java.lang.ArithmeticException the program is terminated we have to handle the error.
+//we have to put into a try ,catch block.where we suspect that error may occur.
+
+package Thrusday;
+import java.util.*;
+public class ErrorExample 
+{
+public static void main(String[] args) 
+{
+	try
+	{
+Scanner ob=new Scanner(System.in);
+System.out.println("Enter 2 nos");
+int a=ob.nextInt();
+int b=ob.nextInt();
+int c=a/b;
+System.out.println("The result is "+c);
+	}
+	catch(Exception ae)
+	{
+		System.out.println("the error is "+ae);
+	}
+System.out.println("The end of the program");
+}
+}
+-----------------------------------------------------------------
+In this case when there is error means we divide the number by zero.
+The catch will execute and display the error message.Then the rest part of the program will execute.
+-------------------------------------------------------------------------------------------------------
+when there is no error the catch block will not execute.The program will execute normally.
+--------------------------------------------------------------------------------------------------
+There are 3 type of Exception
+--------------------------------------------
+1)checked exception(we have to handle it first otherwise it will give compile time error.)
+i)IOException
+ii)SQLException
+iii)ClassNotFoundException
+iv)Interrupted Exception
+-----------------------------------------------------------------
+2)unchecked exception
+i)Arithmatic exception
+ii)NumberFormat exception
+iii)IndexOutOfBound exception
+iv)NullPointer exception
+--------------------------------------------
+3)error
+i)StackOverFlow error
+ii)OutOfMemory error
+iii)Machine error
+-----------------------------------------------
+program-28
+-------------------------
+Try with multiple catch
+-------------------------------------
+//try with multiple catch
+package Thrusday;
+import java.util.*;
+public class ErrorExample 
+{
+public static void main(String[] args) 
+{
+	try
+	{
+Scanner ob=new Scanner(System.in);
+System.out.println("Enter 2 nos");
+int a=ob.nextInt();
+int b=ob.nextInt();
+int c=a/b;
+System.out.println("The result is "+c);
+	}
+	catch(ArithmeticException ae)
+	{
+		System.out.println("the error is "+ae);
+	}
+	catch(InputMismatchException ae)
+	{
+		System.out.println("the errorr is "+ae);
+	}
+	catch(Exception ae) //this can handle all types of error
+	{
+		System.out.println("the errorrr is "+ae);
+	}
+System.out.println("The end of the program");
+}
+}
+-------------------------------------------------------------------------
+* we cannot put the catch(Exception ae) above the catch(ArithmeticException ae) or catch(InputMismatchException ae).
+This will show error unreachable code.
+because catch(Exception ae) will handle all type of errors.but catch(ArithmeticException ae) will handle only Arithmatic exception.
+--------------------------------------------------------------------------------------------------------------------------------
+We generally don't write so many catch block .It will increase the line of code.
+and the execution time also increases.so it in not adviceable to write multiple catch block.
+--------------------------------------------------------------------
+try-catch :-if try is getting error then the catch with handle the error and catch will display the error.
+try-finally:-In this if try gets a error or not it doesn't matter the finally block will definatelly exceute.
+It handles the error and mainly used for closing of connection,file closing etc.
+Can we write try block without catch block.
+yes using finally block.
+--------------------------------------------------------------------------------------------------------------------
+ Example-29
+---------------------------
+//try with finally
+package Thrusday;
+import java.util.*;
+public class ErrorExample 
+{
+public static void main(String[] args) 
+{
+	try
+	{
+Scanner ob=new Scanner(System.in);
+System.out.println("Enter 2 nos");
+int a=ob.nextInt();
+int b=ob.nextInt();
+int c=a/b;
+System.out.println("The result is "+c);
+	}
+
+	finally
+	{
+	System.out.println("The end of the program");
+	}
+}
+}
+------------------------------------------------------------------------------------------------------------------
+throws Exception:-
+-------------------------------
+we don't require any body for throws exception .we mention it with the method.
+This is mostly used with checked exception.
+when we work with IOException,SQLException,Interrupted Exception etc.
+------------------------------------------------------------------
+program-30
+-----------------------
+package Thrusday;
+public class ErrorExample 
+{
+public static void main(String[] args) throws Exception
+{
+	for(int i=1;i<=10;i++)
+	{
+		System.out.println(i);
+		Thread.sleep(1000);//interrupt the flow of control
+	}
+}
+}
+---------------------------------------------------------------------------
+*sleep is a static method so we call it using the class name.
+Thread is a class belongs to lang package.
+Thread.sleep(1000);
+------------------------------------------------------------------
+throw keyword
+--------------------------------
+It is used for user defined exception.
+example :- 
+1)age should be greater than or equal to 18 years to cast your vote.
+2)salary of employee should be greater than 15000.
+3)marks should be greater than zero.
+------------------------------------------------------------------------
+program-31
+---------------------
+package Thrusday;
+import java.util.*;
+public class ErrorExample 
+{
+public static void main(String[] args) throws Exception
+{
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter your age to cast your vote");
+	int age=ob.nextInt();
+	if(age>=18)
+		System.out.println("your are eligible to cash your vote");
+	else
+		throw new Exception("The age should be greater than or equal to 18 to caste your vote");
+}
+}
+----------------------------------------------------------------------------
+ArrayIndexOutOfBound Exception(crossing the array limit)
+----------------------------------------------------------------------
+This error occur when we cross the array limit.
+example :- if the array size is 5 and we are entering 6 elements it will throw an error that is ArrayIndexOutOfBound exception.
+--------------------------------------------------------------------------------------------------------
+program-32
+-----------------------
+package Thrusday;
+import java.util.*;
+public class ErrorExample 
+{
+public static void main(String[] args) throws Exception
+{
+	try
+	{
+	int a[]=new int[5];
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter 5 nos");
+for(int i=0;i<5;i++)
+	a[i]=ob.nextInt();
+System.out.println("5 nos are");
+for(int i=0;i<=5;i++)
+System.out.println(a[i]);
+	}
+	catch(Exception ae)
+	{
+		ae.printStackTrace();
+	}
+
+}
+}
+----------------------------------------------------------------------------------------------------------------
+wap to enter am employees data.
+1)empno it should only contain number.
+2)name
+3)age it should be greater than 20 years to do this job.
+4)qualification should be Btech.
+if all the critaria are ok then he/she is eligible to do the job
+----------------------------------------------------------------------------------------------
+program-33
+-------------------
+package Friday;
+import java.util.*;
+class GFG
+{
+    public static void main (String[] args)throws Exception
+    {
+    	Scanner ob=new Scanner(System.in);
+          try
+    {
+      System.out.println("enter empno :");
+        String str =ob.next();
+        int num = Integer.parseInt(str);
+            }
+    catch(NumberFormatException ex)
+    {
+           System.out.println("Enter only number");
+              }
+         finally
+    {
+        System.out.println("Enter name,age and qualification");
+        String name=ob.next();
+        int age=ob.nextInt();
+        String qual=ob.next();
+        if(age>=20 && qual.equalsIgnoreCase("btech"))
+        	System.out.println("you are eligible");
+        else
+        	throw new Exception("not eligible");
+    }
+    }
+}
+----------------------------------------------------------------------------------
+Lambda Expression
+--------------------------------
+It is also known as functional interface.
+In this the interface will only contain one abstract method so it is called functional interface.
+In lambda expression we don't require 2 classes (parent and child).we don't have to override.we don't have to implement the interface.
+There is a anotation @FunctionalInterface.
+It is used to declare an interface as functional interface.(optional)
+------------------------------------------------------------------------
+@Override :- It was introduced from jdk1.5.It will match the methods of the parent class and the child class.
+both method name and the signatures(return type,parameter) should match.(optional)
+-------------------------------------------------------------------------
+what is the use of lambda expression
+1)The code is reduced in this.
+2)To provide the implementation of functional interface.
+3)Generally a interface is non-functional we have to override into the child class and introduce some functionality.
+example:- 
+interface bank
+{
+void loan();  <------these are non-functional
+void applyforCreditCard();
+}
+------------------------------------------------------------------
+*by using lambda expression we will make the interface as functional.
+----------------------------------------------------------------------
+There are 3 new components in it.
+1)Arguument-list:-It can be empty or have parameters.
+(),->,{body}
+2)Arrow-token:- It is used to link arguments-list and body of the expression.
+3)Body:- It contains the expression and statement .
+--------------------------------------------------------------------------------------------
+()->{System.out.println("Hello");} //no parameter
+----------------------------------------------------------------
+(a)->{System.out.println("Hello");} //single parameter
+----------------------------------------------------------------
+(a,b)->{System.out.println("Hello");} //multiple parameter
+----------------------------------------------------------------
+program-34
+--------------------
+package Friday;
+@FunctionalInterface
+interface example1
+{
+	public void display();  //only one abstract method
+}
+public class Lambda1
+{
+public static void main(String[] args) 
+{
+int length=10;
+int breadth=20;
+example1 obj=()->
+{
+	System.out.println("the length is "+length);
+	System.out.println("the breadth is "+breadth);
+	System.out.println("the area is "+(length*breadth));
+};
+obj.display();
+}
+}
+------------------------------------------------------------------------------------
+program-35
+-------------------
+package Friday;
+@FunctionalInterface
+interface example1
+{
+	public void display(); //only one method
+}
+@FunctionalInterface
+interface example2
+{
+	public String name();
+}
+
+@FunctionalInterface
+interface example3
+{
+	public String address(String loc);
+}
+@FunctionalInterface
+interface example4
+{
+	public int sum(int a,int b);
+}
+
+public class Lambda1
+{
+public static void main(String[] args) 
+{
+int length=10;
+int breadth=20;
+example1 obj=()->     //display method defined
+{
+	System.out.println("the length is "+length);
+	System.out.println("the breadth is "+breadth);
+	System.out.println("the area is "+(length*breadth));
+};
+obj.display();
+
+example2 obj1=()->
+{
+	return "Lambda Expression";
+};
+System.out.println(obj1.name());
+
+example3 obj2=(loc)->
+{
+	return "My Loaction is :"+loc;
+};
+System.out.println(obj2.address("Bangalore"));
+
+example4 obj3=(a,b)->(a+b);
+System.out.println("the sum is "+obj3.sum(400,500));
+
+}
+}
+---------------------------------------------------------------------------------------
+package Friday;
+@FunctionalInterface
+interface example1
+{
+	public void display(); //only one method
+}
+@FunctionalInterface
+interface example2
+{
+	public String name();
+}
+
+@FunctionalInterface
+interface example3
+{
+	public String address(String loc);
+}
+@FunctionalInterface
+interface example4
+{
+	public int sum(int a,int b);
+}
+
+public class Lambda1
+{
+public static void main(String[] args) 
+{
+int length=10;
+int breadth=20;
+example1 obj=()->     //display method defined
+{
+	System.out.println("the length is "+length);
+	System.out.println("the breadth is "+breadth);
+	System.out.println("the area is "+(length*breadth));
+};
+obj.display();
+
+example2 obj1=()->
+{
+	return "Lambda Expression";
+};
+System.out.println(obj1.name());
+
+example3 obj2=(loc)->
+{
+	return "My Loaction is :"+loc;
+};
+System.out.println(obj2.address("Bangalore"));
+
+example4 obj3=(a,b)->
+{
+return a+b;
+};
+System.out.println("the sum is "+obj3.sum(400,500));
+}}
+-----------------------------------------------------------------------------------
+wap to enter amount for withdraw or deposite.
+Then display the balance amount.
+Use case and switch and FunctionalInterface.
+---------------------------------------------------------------------
+We have 3 classes String,StringBuffer,StringBuilder
+--------------------------------------------------------------------------
+String :-Immutable(cannot be changed).
+StringBuffer:-mutable(can be changed)
+StringBuilder:-mutable(can be changed)
+---------------------------------------------------------------------------
+Progarm-36
+----------------
+package Friday;
+public class StringDemo
+{
+public static void main(String[] args) {
+	String s1="apple";
+	String s2="apple";
+	String s3=new String("apple"); //new memory block is created
+	String s4=new String("apple");
+	if(s1==s2) //constant pool
+		System.out.println("true");
+	else
+		System.out.println("false");
+	if(s1.equals(s2))
+		System.out.println("true");
+	else
+		System.out.println("false");
+	if(s1==s3)
+		System.out.println("true");
+	else
+		System.out.println("false");
+}
+}
+------------------------------------------------------------------------
+program-37
+-----------------------
+package Friday;
+public class StringDemo
+{
+public static void main(String[] args) {
+	String s1="Marlabs Software Solution";
+	String s2="Mphasis Software Solution";
+	System.out.println(s1);
+	System.out.println(s1.toLowerCase());
+	System.out.println(s1.toUpperCase());
+	System.out.println(s1.indexOf('M'));//starts from 0
+System.out.println(s1.lastIndexOf('S'));
+System.out.println(s1.equals(s2));
+System.out.println(s1.equalsIgnoreCase(s2));
+System.out.println(s1.substring(1));//starts from 1
+System.out.println(s1.substring(5,6));
+System.out.println(s1.charAt(0));//starts from 0
+System.out.println(s1.startsWith("Marlabs"));//return true or false
+System.out.println(s1.endsWith("Solution"));
+System.out.println(s1.replace("Marlabs", "Marlab"));
+System.out.println(s1.length());
+char x[]=s1.toCharArray();//convert string to char array
+int len=x.length;
+System.out.println("the length of the array is "+len);
+for(int i=0;i<len;i++)
+	System.out.println(x[i]);
+
+}
+}
+
+------------------------------------------------------------------------------------
+program-38
+----------------------
+package Friday;
+public class StringBufferDemo 
+{
+public static void main(String[] args) 
+{
+StringBuffer s1=new StringBuffer("My name ")	;
+StringBuffer s2=new StringBuffer("is sandip ")	;
+StringBuffer s3=new StringBuffer("I am 40 years old");
+System.out.println(s1.append(s2));
+System.out.println(s1.append(s3));
+System.out.println(s1);//mutable the value of the string is changed
+s1.setCharAt(0, 'm');
+System.out.println(s1);
+s1.setLength(20);
+System.out.println(s1);
+System.out.println(s1.insert(20, " am a java Trainer"));
+System.out.println(s1.delete(21, 25));
+System.out.println(s1.reverse());
+System.out.println(s1.reverse());
+System.out.println(s1.capacity());
+}
+}
+----------------------------------------------------------------------------------------------
+StringBuffer is synchronized. 
+with the methods we use the key word synchronized.
+in this after one method complete then the second method start excecuting.
+------------------------------------------------------------------------------------------------------
+StringBuilder is not synchronized.
+StringBuffer takes more time to execute than StringBuilder.
+Thread synchronized means one thread complete excecution then the next thread will start execute.
+example :-ATM (one person will do the transaction then the second person will do the transaction).
+-----------------------------------------------------------------------------------------------------------------
+Collection Framework
+----------------------------------------
+int a[]=new int[5]; ---------------array the size is fixed.
+In case of Collection the size will be incrementing dyamically as we enter the data.
+---------------------------------------------------------------
+It is a collection of Object.
+It provides architecture to store,manupulate group of Objects.
+We can do all operations such as searching,sorting,inserting,delete,manupulating .
+1)Set 2)List 3)Map
+Set is a Interface .It doesnot allow duplicate data.
+It has classes :-
+1)TreeSet :- It will display the data in the shorted order.
+2)HashSet :-It will display the data in random order.
+3)LinkedHashSet :- It will display the data in same order.
+---------------------------------------------------------------------------------
+program-39
+---------------------
+//TreeSet :- It will display the data in the shorted order.
+package Friday;
+import java.util.*;
+public class SetDemo 
+{
+public static void main(String[] args)
+{
+TreeSet<Integer> ts=new TreeSet<Integer>();
+ts.add(70);
+ts.add(20);
+ts.add(30);
+ts.add(10);
+ts.add(50);
+ts.add(50);
+ts.add(60);
+System.out.println(ts);
+}
+}
+---------------------------------------------------------------------------
+//HashSet :-It will display the data in random order.
+package Friday;
+import java.util.*;
+public class SetDemo 
+{
+public static void main(String[] args)
+{
+HashSet<Integer> ts=new HashSet<Integer>();
+ts.add(70);
+ts.add(20);
+ts.add(30);
+ts.add(10);
+ts.add(50);
+ts.add(50);
+ts.add(60);
+System.out.println(ts);
+}
+}
+-----------------------------------------------------------------
+LinkedHashSet :- It will display the data in same order.
+package Friday;
+import java.util.*;
+public class SetDemo 
+{
+public static void main(String[] args)
+{
+LinkedHashSet<Integer> ts=new LinkedHashSet<Integer>();
+ts.add(70);
+ts.add(20);
+ts.add(30);
+ts.add(10);
+ts.add(50);
+ts.add(50);
+ts.add(60);
+System.out.println(ts);
+}
+}
+----------------------------------------------------------------------------------------
+Program-40
+-----------------------
+package Friday;
+public class Student 
+{
+int rollno;
+String name,address;
+public Student(int rollno, String name, String address) {
+	super();
+	this.rollno = rollno;
+	this.name = name;
+	this.address = address;
+}
+@Override
+public String toString() {
+	return "Student [rollno=" + rollno + ", name=" + name + ", address=" + address + "]";
+}
+
+}
+---------------------------------------------------------------------------------------
+package Friday;
+import java.util.*;
+public class SetDemo 
+{
+public static void main(String[] args)
+{
+	Student ob=new Student(101,"sandip","bangalore");
+	Student ob1=new Student(102,"shubam","bangalore");
+	Student ob2=new Student(103,"trupti","bangalore");
+	
+LinkedHashSet<Student> ts=new LinkedHashSet<Student>();
+ts.add(ob);
+ts.add(ob1);
+ts.add(ob2);
+System.out.println(ts);
+}
+}
+--------------------------------------------------------------------------------------------------
+wap to enter data of few employees into a LinkedHashSet and display it.
+empno,name,salary
+------------------------------------------------------------------------------------------------------
+AutoBoxing and Unboxing
+------------------------------------------
+The autoboxing convert the primative data types into it equivalent Wrapper type.
+The unboxing convert the wrapper type to primative datatype.
+---------------------------------------------------------------------------------------
+Example
+-------------------
+package Friday;
+public class AutoBoxingDemo
+{
+public static void main(String[] args) {
+	int a=10;//primative data type to wrapper class convertion is known as autoboxing
+	Integer b=new Integer(a);
+	System.out.println(b);
+}
+}
+--------------------------------------------------
+package Friday;
+public class UnBoxingDemo
+{
+public static void main(String[] args) {
+	Integer b=new Integer(10);//wrapper class to primative data type conversion
+	int a=b;
+	System.out.println(b);
+}
+}
+----------------------------------------------------------------
+Example-41
+--------------------
+package monday;
+import java.util.*;
+public class SetDemo 
+{
+public static void main(String[] args)
+{
+TreeSet<Integer> ts=new TreeSet<Integer>();
+System.out.println(ts.isEmpty());//to check if the TreeSet is empty or not returns a boolean value
+System.out.println(ts.size());
+ts.add(70);
+ts.add(20);
+ts.add(30);
+ts.add(10);
+ts.add(50);
+ts.add(50);
+ts.add(60);
+System.out.println(ts.isEmpty());
+System.out.println(ts.size());
+System.out.println(ts.contains(10));//searching .return boolean value
+System.out.println(ts.contains(100));
+System.out.println(ts.size());
+ts.remove(50);//remove the object
+System.out.println(ts);
+ts.clear(); //remove all the objects
+System.out.println(ts);
+System.out.println(ts.size());
+}
+}
+------------------------------------------
+for each Demo
+---------------------
+package monday;
+import java.util.*;
+public class SetDemo 
+{
+public static void main(String[] args)
+{
+TreeSet<Integer> ts=new TreeSet<Integer>();
+System.out.println(ts.isEmpty());//to check if the TreeSet is empty or not returns a boolean value
+System.out.println(ts.size());
+ts.add(70);
+ts.add(20);
+ts.add(30);
+ts.add(10);
+ts.add(50);
+ts.add(50);
+ts.add(60);
+System.out.println("***********************");
+//for each loop
+for(Object obj:ts)//the ts value will be stored into the obj one by one and we will print the obj.
+	System.out.println(obj);
+System.out.println("***********************");
+}
+}
+-------------------------------------------
+Iterator :- it is used to iterate the data .It is an Iterface.
+It has 3 methods 
+1)hasNext();
+2)next();
+3)remove();
+--------------------------------------------------------------
+example-42
+----------------------
+package monday;
+import java.util.*;
+public class SetDemo 
+{
+public static void main(String[] args)
+{
+TreeSet<Integer> ts=new TreeSet<Integer>();
+ts.add(70);
+ts.add(20);
+ts.add(30);
+ts.add(10);
+ts.add(50);
+ts.add(50);
+ts.add(60);
+System.out.println("***********************");
+//for each loop
+for(Object obj:ts)//the ts value will be stored into the obj one by one and we will print the obj.
+	System.out.println(obj);
+System.out.println("***********************");
+Iterator itr=ts.iterator();
+while(itr.hasNext())
+{
+	System.out.println(itr.next());
+}
+}
+}
+--------------------------------------------------------------------------------
+List :-It is an Interface.
+It allows duplicate records.
+We have classes 1)Stack 2)ArrayList 3)Linkedlist 4)Vector
+stack :FILO .The last element will be index 0.
+List display in the same order.
+---------------------------------------------------------------
+example-43
+-------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+Stack<Integer> st=new Stack<Integer>();
+st.push(10);//insert the data
+st.push(20);
+st.push(30);
+st.push(40);
+st.push(50);
+st.push(60);
+for(Object obj:st)
+	System.out.println(obj);
+System.out.println("********************************");
+System.out.println(st.pop());//delete the data
+System.out.println(st.peek());//to see the last data
+System.out.println(st.pop());//delete the data
+System.out.println("********************************");
+for(Object obj:st)
+	System.out.println(obj);
+}
+}
+-----------------------------------------------------------------------------------------------
+example-44
+---------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+Stack<Integer> st=new Stack<Integer>();
+st.push(10);//insert the data
+st.push(20);
+st.push(30);
+st.push(40);
+st.push(50);
+st.push(60);
+for(Object obj:st)
+	System.out.println(obj);
+System.out.println("********************************");
+System.out.println(st.pop());//delete the data
+System.out.println(st.peek());//to see the last data
+System.out.println(st.pop());//delete the data
+System.out.println("********************************");
+for(Object obj:st)
+	System.out.println(obj);
+System.out.println("********************************");
+//jdk1.8
+st.forEach((x)->System.out.println(x));//The wrapper class super class is Object
+System.out.println(st.search(10));//It will return the position of 10.It is last
+System.out.println(st.search(20));
+System.out.println(st.search(200));
+}
+}
+----------------------------------------------------------------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+Stack<Integer> st=new Stack<Integer>();
+st.push(10);//insert the data
+st.push(20);
+st.push(30);
+st.push(40);
+st.push(50);
+st.push(60);
+for(Object obj:st)
+	System.out.println(obj);
+System.out.println("********************************");
+System.out.println(st.pop());//delete the data
+System.out.println(st.peek());//to see the last data
+System.out.println(st.pop());//delete the data
+System.out.println("********************************");
+for(Object obj:st)
+	System.out.println(obj);
+System.out.println("********************************");
+//jdk1.8
+st.forEach((x)->System.out.println(x));//The wrapper class super class is Object
+System.out.println(st.search(10));//It will return the position of 10.
+System.out.println(st.search(20));
+System.out.println(st.search(200));//element not found it displays -1
+try
+{
+System.out.println(st.pop());
+System.out.println(st.pop());
+System.out.println(st.pop());
+System.out.println(st.pop());
+System.out.println(st.pop());
+}
+catch(Exception ae)
+{
+	System.out.println("Stack is empty");
+}
+}
+}
+-----------------------------------------------------------------------------------
+Example-45
+------------------------
+Linked List
+----------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+LinkedList<Integer> ls=new LinkedList<Integer>();
+LinkedList<Integer> ls1=new LinkedList<Integer>();
+ls.add(10);
+ls.add(20);
+ls.add(30);
+ls.add(40);
+ls1.add(100);
+ls1.add(200);
+ls1.add(300);
+ls1.add(400);
+ls.forEach((x)->System.out.println(x));
+System.out.println("*******************");
+ls1.forEach((x)->System.out.println(x));
+System.out.println("*******************");
+ls.addFirst(9);
+ls1.addFirst(99);
+ls.forEach((x)->System.out.println(x));
+System.out.println("*******************");
+ls1.forEach((x)->System.out.println(x));
+System.out.println("*******************");
+ls.removeFirst();
+ls1.removeFirst();
+ls.forEach((x)->System.out.println(x));
+System.out.println("*******************");
+ls1.forEach((x)->System.out.println(x));
+System.out.println("*******************");
+ls.removeLast();
+ls1.removeLast();
+System.out.println(ls.getFirst());
+System.out.println(ls1.getLast());
+ls.addAll(ls1);
+System.out.println("*******************");
+ls.forEach((x)->System.out.println(x));
+}
+}
+--------------------------------------------------------------------------------------
+Interface to iterate the data:-
+----------------------------------------------
+Iterator:-hasNext(),next();remove();//In this we can move in one direction.
+ListIterator:- In this we can move in both direction.
+forward :- In this we have hasNext(),next().First the pointer with move in forward direction then it will move in backward direction.
+backword:- In this we have hasPrevious(),previous();
+-------------------------------------------------------------------------------------------------------------
+Example-46
+--------------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+LinkedList<String> ls=new LinkedList<String>();
+ls.add("Trupti");
+ls.add("Shubham");
+ls.add("Madhu");
+ls.add("Geetanjali");
+ls.add("Sunil");
+ls.add("Deepak");
+System.out.println("Forword Direction");
+ListIterator<String> li=ls.listIterator();
+while(li.hasNext())
+{
+	System.out.println(li.next());
+}
+System.out.println("Backward Direction");
+while(li.hasPrevious())
+{
+	System.out.println(li.previous());
+}
+}
+}
+-------------------------------------------------------------------------------------------------------
+ java.util.Collections
+---------------------------------------
+It has lot of static methods which can be implemented ob set,list,map,queue
+It this we have sort() which can sort a list,map,queue.
+Collections.sort()
+---------------------------------------------------
+Example-47
+----------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+LinkedList<String> ls=new LinkedList<String>();
+ls.add("Trupti");
+ls.add("Shubham");
+ls.add("Madhu");
+ls.add("Geetanjali");
+ls.add("Sunil");
+ls.add("Deepak");
+Collections.sort(ls);
+ls.forEach((x)->System.out.println(x));
+}
+}
+-------------------------------------------------------------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+LinkedList<Integer> ls=new LinkedList<Integer>();
+ls.add(10);
+ls.add(40);
+ls.add(30);
+ls.add(20);
+ls.add(50);
+Collections.sort(ls);
+ls.forEach((x)->System.out.println(x));
+System.out.println("the largest no is "+Collections.max(ls));
+System.out.println("the smallest no is "+Collections.min(ls));
+}
+}
+-------------------------------------------------------------------------------------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+ArrayList<Integer> ls=new ArrayList<Integer>();
+ls.add(10);
+ls.add(40);
+ls.add(30);
+ls.add(20);
+ls.add(50);
+Collections.sort(ls);
+ls.forEach((x)->System.out.println(x));
+System.out.println("the largest no is "+Collections.max(ls));
+System.out.println("the smallest no is "+Collections.min(ls));
+}
+}
+-------------------------------------------------------------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+ArrayList<Integer> ls=new ArrayList<Integer>();
+ls.add(10);
+ls.add(40);
+ls.add(30);
+ls.add(20);
+ls.add(50);
+Collections.sort(ls,Collections.reverseOrder());
+ls.forEach((x)->System.out.println(x));
+}
+}
+------------------------------------------------------------------------------------------------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args)
+{
+ArrayList<Integer> ls=new ArrayList<Integer>();
+ls.add(Integer.valueOf(10));//it will convert Object to primative datatype
+ls.add(Integer.valueOf(40));
+ls.add(30);//it internally convert object to primative datatype
+ls.add(20);
+ls.add(50);
+Collections.sort(ls,Collections.reverseOrder());
+ls.forEach((x)->System.out.println(x));
+}
+}
+-------------------------------------------------------------
+java.lang.Comparable :-
+public abstract int compareTo(T);
+it is used to sort our own object data.It checks the String ascii code.
+in this if the current object is greater than the specified object it return (+) value.
+in this if the current object is lesser than the specified object it return (-) value.
+in this if the current object is equal than the specified object it return zero value.
+-----------------------------------------------------------------------
+Example-48
+----------------------
+package monday;
+
+public class MarlabsEmp implements Comparable<MarlabsEmp>
+{
+
+String name;
+MarlabsEmp(String name)
+{
+	this.name=name;
+}
+		@Override
+		public int compareTo(MarlabsEmp obj)
+	{
+		return name.compareTo(obj.name);
+	}}
+--------------------------------------------------------------------------------------------------------------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args) 
+{
+ArrayList<MarlabsEmp> al=new ArrayList<MarlabsEmp>();
+al.add(new MarlabsEmp("Geetanjali"));
+al.add(new MarlabsEmp("Shubam"));
+al.add(new MarlabsEmp("Deepak"));
+al.add(new MarlabsEmp("Trupti"));
+Collections.sort(al);
+for(MarlabsEmp ob:al)
+	System.out.println(ob.name);
+}
+}
+--------------------------------------------------------------------------------------------
+Example-47
+---------------------
+package monday;
+
+public class MarlabsEmp implements Comparable<MarlabsEmp>
+{
+	Integer empid;
+String name;
+MarlabsEmp(Integer empid,String name)
+{
+	this.empid=empid;
+	this.name=name;
+}
+@Override
+		public int compareTo(MarlabsEmp obj)
+	{
+		return empid.compareTo(obj.empid);
+	}}
+
+-----------------------------------------------------------
+package monday;
+import java.util.*;
+public class ListDemo
+{
+public static void main(String[] args) 
+{
+ArrayList<MarlabsEmp> al=new ArrayList<MarlabsEmp>();
+al.add(new MarlabsEmp(104,"Geetanjali"));
+al.add(new MarlabsEmp(103,"Shubam"));
+al.add(new MarlabsEmp(102,"Deepak"));
+al.add(new MarlabsEmp(101,"Trupti"));
+Collections.sort(al);
+for(MarlabsEmp ob:al)
+	System.out.println(ob.empid);
+}
+}
+--------------------------------------------------------------------------------------
+Map :-It is an interface.
+ In this we enter key and values pair.
+The key should not be duplicate.The value can be duplicate.
+The key and value pair is known as entry.
+Map is useful to search,update or delete elements on the basis of the key.
+-------------------------------------------------------------
+Map --HashMap,LinkedHashMap,TreeMap(sorting)
+-----------------------------------------------------------------------------------
+Example-48
+------------------
+package monday;
+import java.util.*;
+public class HashMapDemo
+{
+public static void main(String[] args)
+{
+HashMap<Integer, String> hm=new HashMap<Integer, String>();
+hm.put(1, "Gitanjali");
+hm.put(2, "Subham");
+hm.put(3, "sandip");
+hm.put(4, "sunil");
+hm.put(5, "sunil");
+hm.put(4, "ajay");
+Scanner ob=new Scanner(System.in);
+System.out.println("enter rollno and name");
+int rollno=ob.nextInt();
+String name=ob.next();
+hm.put(rollno, name);
+System.out.println(hm);
+}
+}
+-------------------------------------------------------------------
+Set set=hm.entrySet();
+Iterator itr=set.iterator();
+while(itr.hasNext())
+{
+	Map.Entry en=(Map.Entry<Integer, String>)itr.next();
+	System.out.println(en.getKey()+ "  "+en.getValue());
+}
+---------------------------------------------------------------------------------------------
+HashSet is converted to set because we don't the Interface Iterator in the HashMap.We have it in Set.
+entrySet() is used to convert the Map into set.
+Map.Entry is a class contain getKey(),getValue()
+-------------------------------------------------------------------------------------------------------
+Example-49
+--------------------
+package monday;
+import java.util.*;
+public class HashMapDemo
+{
+public static void main(String[] args)
+{
+HashMap<Integer, String> hm=new HashMap<Integer, String>();
+hm.put(1, "Gitanjali");
+hm.put(2, "Subham");
+hm.put(3, "sandip");
+hm.put(4, "sunil");
+hm.put(5, "sunil");
+hm.put(4, "ajay");
+Scanner ob=new Scanner(System.in);
+System.out.println("enter rollno and name");
+int rollno=ob.nextInt();
+String name=ob.next();
+hm.put(rollno, name);
+System.out.println(hm);
+Set set=hm.entrySet();
+Iterator itr=set.iterator();
+while(itr.hasNext())
+{
+	Map.Entry en=(Map.Entry<Integer, String>)itr.next();
+	System.out.println(en.getKey()+ "  "+en.getValue());
+}}}
+-------------------------------------------------------------------------------------------------------------
+package monday;
+import java.util.*;
+public class HashMapDemo
+{
+public static void main(String[] args)
+{
+HashMap<Integer, String> hm=new HashMap<Integer, String>();
+hm.put(1, "Gitanjali");
+hm.put(2, "Subham");
+hm.put(3, "sandip");
+hm.put(4, "sunil");
+hm.put(5, "sunil");
+hm.put(4, "ajay");
+Scanner ob=new Scanner(System.in);
+System.out.println("enter rollno and name");
+int rollno=ob.nextInt();
+String name=ob.next();
+hm.put(rollno, name);
+System.out.println(hm);
+Set set=hm.entrySet();
+Iterator itr=set.iterator();
+while(itr.hasNext())
+{
+	Map.Entry en=(Map.Entry<Integer, String>)itr.next();
+	System.out.println(en.getKey()+ "  "+en.getValue());
+}
+System.out.println("********************");
+for(Map.Entry<Integer, String> m: hm.entrySet())
+	System.out.println(m.getKey()+ "    "+m.getValue());
+System.out.println("****************************");
+hm.remove(4);
+hm.remove(1,"Gitanjali");
+hm.replace(2, "Ravi");
+hm.replace(3,"sandip", "Ravi.k");
+System.out.println("********************");
+for(Map.Entry<Integer, String> m: hm.entrySet())
+	System.out.println(m.getKey()+ "    "+m.getValue());
+System.out.println("****************************");
+}}
+---------------------------------------------------------------------------
+package monday;
+import java.util.*;
+public class HashMapDemo
+{
+public static void main(String[] args)
+{
+HashMap<Integer, String> hm=new HashMap<Integer, String>();
+hm.put(1, "Gitanjali");
+hm.put(2, "Subham");
+hm.put(3, "sandip");
+hm.put(4, "sunil");
+hm.put(5, "sunil");
+hm.put(4, "ajay");
+Scanner ob=new Scanner(System.in);
+System.out.println("enter rollno and name");
+int rollno=ob.nextInt();
+String name=ob.next();
+hm.put(rollno, name);
+System.out.println(hm);
+Set set=hm.entrySet();
+Iterator itr=set.iterator();
+while(itr.hasNext())
+{
+	Map.Entry en=(Map.Entry<Integer, String>)itr.next();
+	System.out.println(en.getKey()+ "  "+en.getValue());
+}
+System.out.println("********************");
+for(Map.Entry<Integer, String> m: hm.entrySet())
+	System.out.println(m.getKey()+ "    "+m.getValue());
+System.out.println("****************************");
+hm.remove(4);
+hm.remove(1,"Gitanjali");
+hm.replace(2, "Ravi");
+hm.replace(3,"sandip", "Ravi.k");
+System.out.println("********************");
+for(Map.Entry<Integer, String> m: hm.entrySet())
+	System.out.println(m.getKey()+ "    "+m.getValue());
+System.out.println("****************************");
+hm.replaceAll((Integer,String)->"sandip");
+System.out.println("****************************");
+for(Map.Entry<Integer, String> m: hm.entrySet())
+	System.out.println(m.getKey()+ "    "+m.getValue());
+hm.clear();
+System.out.println("****************************");
+for(Map.Entry<Integer, String> m: hm.entrySet())
+	System.out.println(m.getKey()+ "    "+m.getValue());
+System.out.println("****************************");
+}}
+----------------------------------------------------------------------------------------------
+Example-50
+-------------------------
+package HashMapDemo;
+import java.util.*;
+public class Employee 
+{
+int empid;
+String name,address;
+float salary;
+public Employee(int empid, String name, String address, float salary)
+{
+	super();
+	this.empid = empid;
+	this.name = name;
+	this.address = address;
+	this.salary = salary;
+}
+@Override
+public String toString() {
+return "Employee [empid=" + empid + ", name=" + name + ", address=" + address + ", salary=" + salary + "]";
+}}
+---------------------------------------------------------------------------------------------------
+package HashMapDemo;
+import java.util.*;
+public class HashMapExample 
+{
+public static void main(String[] args) 
+{
+	HashMap<Integer,Employee> map=new HashMap<Integer,Employee> ();
+	Employee emp1=new Employee(101,"sandip","Bangalore",5600.50f);
+	Employee emp2=new Employee(102,"sunil","Bangalore",5700.50f);
+	Employee emp3=new Employee(103,"pradeep","Bangalore",5800.50f);
+	map.put(101, emp1);
+	map.put(102, emp2);
+	map.put(103, emp3);
+	Scanner ob=new Scanner(System.in);
+	System.out.println("Enter the empno you want to search");
+	int empno=ob.nextInt();
+	
+	for(Map.Entry<Integer, Employee> m: map.entrySet())
+		if(m.getKey()==empno)
+		System.out.println(m.getKey()+ "    "+m.getValue());
+}
+}
+-----------------------------------------------------------------------------------------------------------------------
+HashMap :- It gives high performance in the total data-structure of java collection framework.
+There are 2 factors which effect the performance of hashmap.
+1)Initial Capacity.
+2)Load Factor.
+------------------------------------------
+1)Initial Capacity is 16 bytes.
+2)It increses automatically when it reaches to the threshold.
+ 3)Initailly it is 2 pow 4=16,Then it will 2 pow 5=32,then it will be 2 pow 6=64
+--------------------------------------------------------------------------------------------------------------------------
+Load Factor :- is measured that decides when to increase the HashMap capacity to maintain the get() and put() request.
+--------------------------------------------------------------------------------------------------------------------------------
+
+wap to create a BookShop where we have some books.(bookid,book name,price)
+enter the book list into a HashMap.
+if the book is sold remove from the list.
+if the price of the book is increased modify the list.
+if a person wants to search for the book he can put the bookid and see the book is available or not.
+finally display the total books available.
+--------------------------------------------------------------------------------
+Queue Interface
+------------------------------
+It maintains the first-in-first-out order.
+It can be defined as an ordered list that is used to hold elements in the same order.
+The classes are PriorityQueue,Deque and ArrayDeque .
+------------------------------------------------------------------ 
+Example-51
+---------------------
+package HashMapDemo;
+import java.util.*;
+public class PriorityQueueDemo 
+{
+public static void main(String[] args) 
+{
+PriorityQueue<String> queue=new PriorityQueue<String>();
+queue.add("Subham");
+queue.add("Sandip");
+queue.add("Geetanjali");
+queue.add("Ajay");//first-in-first-out
+System.out.println(queue.element());//this will display the head element
+System.out.println(queue.peek());//this will display the head element
+System.out.println(queue.remove());//this removes the head element
+System.out.println(queue.poll());//remove the head element
+System.out.println("************************************************");
+Iterator itr=queue.iterator();
+while(itr.hasNext())
+{
+	System.out.println(itr.next());
+}
+queue.add("sunil");
+queue.add("trupti");
+System.out.println("************************************************");
+Iterator itr1=queue.iterator();
+while(itr1.hasNext())
+{
+	System.out.println(itr1.next());
+}
+System.out.println("the head is "+queue.element());//this will display the head element
+}}
+----------------------------------------------------------------------------
+ArrayDeque :- It is a class.We can remove and add the elements from both sides.
+It is also called double-ended queue.
+Example-52
+----------------------
+package HashMapDemo;
+import java.util.*;
+public class DequeDemo {
+public static void main(String[] args) {
+	ArrayDeque<String> obj=new ArrayDeque();
+	obj.add("sunil");
+	obj.add("Subham");
+	obj.add("Sandip");
+	obj.add("Geetanjali");
+	obj.add("Ajay");
+	obj.addFirst("Kiran");
+	obj.addLast("trupti");
+	System.out.println(obj.getFirst());
+	System.out.println(obj.getLast());
+	System.out.println("****************************************");
+	for(String abc : obj)
+		System.out.println(abc);
+}
+}
+-----------------------------------------------------------------------------------------------------
+Example-1
+-----------------------
+//we want to convert Array to List.
+//We manually have to traverse the array and add the element into list one by one.
+//The array size is fix but the arraylist size increase dynamically.
+package Wednesday;
+import java.util.*;
+public class ArrayToListDemo
+{
+public static void main(String[] args)
+{
+	//array
+	String arr[]= {"Shubham","Geetanjali","Trupti","Ajay"};
+	System.out.println("the array is :"+Arrays.toString(arr));
+//Convert array to List
+	ArrayList<String> list=new ArrayList<String>();
+	for(String str:arr)
+	{
+		list.add(str);
+	}
+	System.out.println("The list is :"+list);
+}
+}
+--------------------------------------------------------------------------------------------------
+Example-2
+---------------------
+//to convert List to Array 
+package Wednesday;
+import java.util.*;
+public class ListToArrayDemo
+{
+public static void main(String[] args)
+{
+ArrayList<String> list=new ArrayList<String>();
+list.add("apple");
+list.add("orange");
+list.add("grapes");
+list.add("strawberry");
+System.out.println("the list is :"+list);
+//to convert List to Array we use toArray()
+String arr[]=list.toArray(new String[list.size()]);
+System.out.println("Print the array :"+Arrays.toString(arr));
+}
+}
+---------------------------------------------------------------------------------
+Properties class
+-----------------------------
+1)The properties object contains key and value pair both as string.
+2)It belongs to java.util.Properties class .It is a subclass of HashTable.
+3)We get the properties value based on the properties key.
+4)The advantage is we neednot to re-compile when the value in the properties files is changed.
+5)It is mostly useful during migration of project from one database to another database (Example:Oracle9 to Oracle11)
+
+
+Example :- 
+database setup
+----------------------------
+db.properties
+----------------------------
+user=system
+password=1234
+Driver=oracle.jdbc.driver.OracleDriver
+connection=jdbc:oracle:thin:@localhost:1521:xe
+
+Server.Port=8090
+--------------------------------------------------------------------------
+Example-3
+-------------------
+package Wednesday;
+import java.util.*;
+import java.io.*;
+public class PropertiesDemo
+{
+public static void main(String[] args)throws Exception
+{
+FileReader fr=new FileReader("db.properties");
+Properties p=new Properties();
+p.load(fr);
+
+System.out.println("the user name is :"+p.getProperty("user"));
+System.out.println("the password is :"+p.getProperty("password"));
+System.out.println("the Driver is :"+p.getProperty("Driver"));
+System.out.println("the connection is :"+p.getProperty("connection"));
+//System.out.println("the data base is :"+p.getProperty("Data"));
+}
+}
+------------------------------------------------------------------------------
+We have 2 interfaces to sort the data.
+1)Comparable interface:- 
+It provides a single sorting sequence only.We can sort a single element only.
+In this we have a abstract method
+public int compareTo(Student obj);//This will compare the single element of the object which may be a rollno,name or age.
+---------------- ----------------------------------------------------------------------------------
+2)Comparator interface.
+We can sort a object of a class.
+In this we have a abstract method 
+public int compare(Object ob1,Object ob2);//This will compare the first object with the second object.
+----------------------------------------------------------------------------------------------------------------
+Example-4
+---------------------
+package Wednesday;
+
+public class Student implements Comparable<Student>
+{
+	int rollno,age;
+	String name;
+
+	public Student(int rollno, int age, String name) 
+	{
+		super();
+		this.rollno = rollno;
+		this.age = age;
+		this.name = name;
+	}
+
+	@Override
+	public int compareTo(Student obj) 
+	{
+		if(age==obj.age)
+		return 0;
+		else if(age>obj.age)
+			return 1;
+		else
+			return -1;
+	}
+
+}
+---------------------------------------------------------
+package Wednesday;
+import java.util.*;
+public class ComparableDemo 
+{
+public static void main(String[] args) 
+{
+ArrayList<Student> al=new ArrayList<Student>();
+al.add(new Student(101,21,"Trupti"));
+al.add(new Student(102,24,"Shubam"));
+al.add(new Student(103,22,"Ajay"));
+al.add(new Student(104,23,"Madhu"));
+Collections.sort(al);
+for(Student st:al)
+	System.out.println(st.age+"  "+st.rollno+"   "+st.name);
+}
+}
+-------------------------------------------------------------------------------------------------------
+syntax :-
+-------------
+public int compare(Object o1, Object o2)
+	{
+Employee ob1=(Employee) o1;
+Employee ob2=(Employee) o2;
+if(ob1.age==ob2.age)		
+return 0;
+else if(ob1.age > ob2.age)
+	return 1;
+else
+	return -1;
+	}
+------------------------------------------------------------------------------
+compare() has a logic to compare the int values.
+if the 1st object age is greater than the second object age it will return (+) value.
+if the 1st object age is less than the second object age it will return (-) value.
+if the 1st object age is equal than the second object age it will return (0) value.
+we have age 23,22,21 .if first age is geater then the second the it return (+) and the values are swapped.
+we have age 22,23,21 .if first age is geater then the second the it return (+) and the values are swapped.
+we have age 22,21,23 .if first age is geater then the second the it return (+) and the values are swapped.
+we have age 21,22,23 .if first age is geater then the second the it return (+) and the values are swapped.
+------------------------------------------------------------------------------------------------------------------------------
+Example-5
+----------------------
+package Wednesday;
+public class Employee 
+{
+int empno,age;
+String name;
+public Employee(int empno, int age, String name) {
+	super();
+	this.empno = empno;
+	this.age = age;
+	this.name = name;
+}
+
+}
+----------------------------------------------------------------
+package Wednesday;
+import java.util.*;
+public class EmployeeAge implements Comparator 
+{
+
+	@Override
+	public int compare(Object o1, Object o2)
+	{
+Employee ob1=(Employee) o1;
+Employee ob2=(Employee) o2;
+if(ob1.age==ob2.age)		
+return 0;
+else if(ob1.age > ob2.age)
+	return 1;
+else
+	return -1;
+	}
+
+}
+--------------------------------------------------------------------
+package Wednesday;
+import java.util.*;
+public class EmployeeName implements Comparator 
+{
+	@Override
+	public int compare(Object o1, Object o2)
+	{
+Employee ob1=(Employee) o1; //we are creating out own object and assigning it to the compare() Object o1 and o2
+Employee ob2=(Employee) o2;
+return 	ob1.name.compareTo(ob2.name);
+}
+}
+------------------------------------------------------------------------------
+package Wednesday;
+import java.util.*;
+public class EmployeeMain 
+{
+public static void main(String[] args)
+{
+ArrayList<Employee> al=new ArrayList<Employee>();
+al.add(new Employee(101,21,"Shubham"));
+al.add(new Employee(102,23,"Trupti"));
+al.add(new Employee(103,22,"Ajay"));
+al.add(new Employee(104,24,"Kiran"));
+
+//Sorting by age
+Collections.sort(al,new EmployeeAge());
+Iterator<Employee> itr=al.iterator();
+while(itr.hasNext())
+{
+	Employee emp=itr.next();
+	System.out.println(emp.age+"  "+emp.empno+"  "+emp.name);
+}
+System.out.println("***************************************************");
+//Sorting by name
+Collections.sort(al,new EmployeeName());
+Iterator<Employee> itr1=al.iterator();
+while(itr1.hasNext())
+{
+	Employee emp=itr1.next();
+	System.out.println(emp.age+"  "+emp.empno+"  "+emp.name);
+}
+}
+}
+-------------------------------------------------------------------------------------------------------------------------------
+Example-54
+-------------------------
+CompareTo
+---------------------
+package Collection;
+
+public class Product 
+{
+int id;
+String name;
+Float price;
+public Product(int id, String name, Float price) {
+	super();
+	this.id = id;
+	this.name = name;
+	this.price = price;
+}}
+----------------------------------------------------------------------------------------------------------------
+package Collection;
+import java.util.*;
+public class LambdaExpressionDemo
+{
+public static void main(String[] args)
+{
+ArrayList<Product> al=new ArrayList<Product>();
+al.add(new Product(1,"Laptop",40000.35f));
+al.add(new Product(2,"desktop",30000.35f));
+al.add(new Product(3,"Keyboard",4000.45f));
+al.add(new Product(4,"Mouse",300.00f));
+//sort on basis of product price
+Collections.sort(al,(p1,p2)->{    //p1 and p2 are 2 object to compare
+	return p1.price.compareTo(p2.price);});  
+
+for(Product p:al)
+	System.out.println(p.id+"  "+p.name+"  "+p.price);
+
+//sorting on basis of product name
+System.out.println("*********************************************");
+
+Collections.sort(al,(p1,p2)->{  
+	return p1.name.compareTo(p2.name);});
+
+for(Product p:al)
+	System.out.println(p.id+"  "+p.name+"  "+p.price);
+
+}
+}
+--------------------------------------------------------------------------------------------------------------------
+Filter Data
+------------------
+package Collection;
+import java.util.*;
+import java.util.stream.Stream;
+public class LambdaExpressionDemo
+{
+public static void main(String[] args)
+{
+ArrayList<Product> al=new ArrayList<Product>();
+al.add(new Product(1,"Laptop",40000.35f));
+al.add(new Product(2,"Desktop",30000.35f));
+al.add(new Product(3,"Keyboard",4000.45f));
+al.add(new Product(4,"Mouse",300.00f));
+//sort on basis of product price
+Collections.sort(al,(p1,p2)->{  
+	return p1.price.compareTo(p2.price);});
+
+for(Product p:al)
+	System.out.println(p.id+"  "+p.name+"  "+p.price);
+
+//sorting on basis of product name
+System.out.println("*********************************************");
+
+Collections.sort(al,(p1,p2)->{  
+	return p1.name.compareTo(p2.name);});
+
+for(Product p:al)
+	System.out.println(p.id+"  "+p.name+"  "+p.price);
+
+System.out.println("*****************Less than 5000***************************");
+//filter the data example :- product less than Rs 5000
+//we have a class --(Stream)
+Stream<Product> fd=al.stream().filter(x -> x.price < 5000);
+fd.forEach(product -> System.out.println(product.id+"  "+product.name+"  "+product.price));
+
+System.out.println("*****************Greater Than 5000***************************");
+Stream<Product> fd1=al.stream().filter(x -> x.price > 5000);
+fd1.forEach(product -> System.out.println(product.id+"  "+product.name+"  "+product.price));
+}
+}
+-----------------------------------------------------------------------------------------------------------
+Example -55
+------------------------
+EnumSet :- it sort the data according to the enum list provided.
+----------------------------------
+package Collection;
+import java.util.*;
+enum days { SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY}
+public class EnumDemo
+{
+public static void main(String[] args) 
+{
+EnumSet es=EnumSet.of(days.FRIDAY,days.MONDAY,days.SUNDAY,days.TUESDAY);
+Iterator itr=es.iterator();
+while(itr.hasNext())
+	System.out.println(itr.next());
+EnumSet es1=EnumSet.allOf(days.class);
+System.out.println("the weeks days are :"+es1);
+EnumSet es2=EnumSet.noneOf(days.class);
+System.out.println("the weeks days are :"+es2);
+}
+}
+--------------------------------------------------------------------------------
+EnumMap :- in this we will enter key and value pair.
+---------------------------------------------------------------------------
+Example-56
+---------------------
+package Collection;
+import java.util.*;
+enum day { SUNDAY,MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY}
+public class EnumMapDemo 
+{
+public static void main(String[] args) 
+{
+EnumMap<day, String> em=new EnumMap<day, String>(day.class);
+em.put(day.SUNDAY, "Taken Rest");
+em.put(day.MONDAY, "Project Work");
+em.put(day.TUESDAY, "Collection");
+for(Map.Entry m:em.entrySet())
+	System.out.println(m.getKey()+"     "+m.getValue());
+}
+}
+--------------------------------------------------------------------------------------------------
+Example-57
+---------------------
+ how can I mention Time suppose today I have meeting from 2 to 6 and 7 to 8 another meeting how can i display.
+-------------------------------------------
+package Collection;
+public class MeetingDetails
+{
+int empid,roomno;
+String name,Project,meetingstart,meetingend;
+public MeetingDetails(int empid, int roomno, String name, String project, String meetingstart, String meetingend) 
+{
+	super();
+	this.empid = empid;
+	this.roomno = roomno;
+	this.name = name;
+	Project = project;
+	this.meetingstart = meetingstart;
+	this.meetingend = meetingend;
+}
+@Override
+public String toString() {
+	return "MeetingDetails of Madhusudhan [empid=" + empid + ", roomno=" + roomno + ", name=" + name + ", Project=" + Project+ ", meetingstart=" + meetingstart + ", meetingend=" + meetingend + "]";
+}
+}
+
+----------------------------------------------------------------------------------------
+package Collection;
+import java.util.*;
+enum meet{Meeting1,Meeting2,Meeting3,Meeting4};
+public class MeetingEnumMap 
+{
+public static void main(String[] args) 
+{
+EnumMap<meet, MeetingDetails> em=new EnumMap<meet, MeetingDetails>(meet.class);
+MeetingDetails ob1=new MeetingDetails(101,1,"Madhu","WMCG","2PM","6PM");
+MeetingDetails ob2=new MeetingDetails(101,1,"Madhu","Product Lunch","6PM","8PM");
+MeetingDetails ob3=new MeetingDetails(101,1,"Madhu","FMCG","8PM","10PM");
+MeetingDetails ob4=new MeetingDetails(101,1,"Madhu","Windows-11","10PM","11.30 PM");
+em.put(meet.Meeting1, ob1);
+em.put(meet.Meeting2, ob2);
+em.put(meet.Meeting3, ob3);
+em.put(meet.Meeting4, ob4);
+for(Map.Entry<meet, MeetingDetails> ab:em.entrySet())
+{
+	System.out.println(ab.getKey()+"    "+ab.getValue());
+}
+}
+}
+---------------------------------------------------------------------------------------------------------------
+Wap to enter names,shopping done for Chistmas (productname,price,shop/online)
+and display it.(EnumMap).
+----------------------------------------------------------------------------------------------------
+ArrayList and LinkedList Difference
+-----------------------------------------------------------------
+ArrayList :-
+1)It internally use dynamic array to store the elements.
+2)Manipulation of arraylist is slow.
+3)We can add the element at the rear end.
+
+LinkedList:-
+1)It internally use double link list to store the elements.
+2)Manipulation of Linkedlist is faster.
+3)LinkedList class acts like a list and queue.
+4)We can add the element at both the ends.
+-----------------------------------------------------------------------------------
+HashMap and HashTable Difference
+-------------------------------------------------------
+HashMap
+1)It is not-synchronized .(not Thread safe we can use this with threads)
+2)It allows one null key and multiple null values.
+3)This faster than hashTable
+4)It is traversed by Iterator.
+5)It inherits AbstractMap class.
+------------------------------------
+
+
+HashTable
+1)It is synchronized .(Thread safe.we can use with threads)
+2)It doesn't allow any null key or value.
+3)It is slower than HashMap.
+4)It is traversed by Iterator and Enumerator.
+5)It inherits Dictionary class.
+---------------------------------------------------------------------------------------------
+AbstractMap and Dictonary difference
+----------------------------------------------------------
+1)AbstractMap it is the super class of HashMap .we cann't intanceate the AbstractMap so we have to create object of the HashMap.
+-------------------------------------------
+1)Dictionary it is the super class of HashTable .we cann't intanceate the Dictionary so we have to create object of the HashTable.
+
+------------------------------------------------------------------------------
+package Collection;
+import java.util.*;
+public class DictonaryDemo 
+{
+public static void main(String[] args)
+{
+Dictionary<String, String> d=new Hashtable<String, String>();//Dictionary is It is abstract parent 
+d.put("1","sandip");
+d.put("2","shubham");
+d.put("3","sunil");
+d.put("4","ajay");
+for(Enumeration i=d.elements();i.hasMoreElements();)
+System.out.println("the value are :"+i.nextElement());
+}
+}
+-----------------------------------------------------------------------------
+package Collection;
+import java.util.*;
+public class DictonaryDemo 
+{
+public static void main(String[] args)
+{
+AbstractMap<String, String> d=new HashMap<String, String>();//AbstractMap is the abstact parent class.
+d.put("1","sandip");
+d.put("2","shubham");
+d.put("3","sunil");
+d.put("4","ajay");
+for(Map.Entry ab:d.entrySet())
+{
+	System.out.println(ab.getKey()+"    "+ab.getValue());
+}
+}
+}
+----------------------------------------------------------------------------------------------------------------------
+Thread:-It is a sort of execution of instruction.
+
+single Thread Program:- Till now we were doing single threaded programing the program start execution from the main() till the end.
+------------------------------------------------------------------------------------------------
+Multi Thread Program:-
+Each thread will do some task.
+We can create object of Thread and assign the task.
+In this we will have run() and we will have start() .the start() will call the run().
+For this we can either extends Thread class or implement runnable interface.
+There will be Thread switching .So we will see all the start() exceute at the same time and the output will be a mixture of all the task.
+------------------------------------------------------------------------------------------------------
+Thread lifecycle
+--------------------------
+new born thread
+start
+runnable(choose the thread)
+running
+block/wait/sleep
+dead(excution is completed)
+------------------------------------------------------------------------------------------------
+Example-58
+----------------------
+package Thread;
+
+public class Thread1 extends Thread 
+{
+	public void run()
+	{
+		for(int i=1;i<=10;i++)
+		{
+			System.out.println("Thread1"+" "+i);
+			try {
+				sleep(1000);//interrupts the flow of control 
+			} catch (InterruptedException e) {
+							e.printStackTrace();
+			}
+		}
+	}
+}
+-------------------------------------------------------------------------
+package Thread;
+
+public class MainThread
+{
+public static void main(String[] args)
+{
+	Thread1 ob=new Thread1();
+	Thread2 ob1=new Thread2();
+	Thread3 ob2=new Thread3();
+	ob.start(); //start will call the run().At-a-Time all the run() will start excuting concurrently.
+	ob1.start();
+	ob2.start();
+}
+}
+----------------------------------------------------------------------------
+Methods in Thread class
+----------------------------------------
+1)getName() :- It gets the name of Thread.
+
+2)isAlive() :- It check if the Thread is still running or completed it's execution.It returns boolean value.
+
+3)run():- Entry point for the thread.
+
+4)start():- It Starts a thread by calling the run().
+
+5)sleep():- In this based on the requirement we can make a thread sleep or wait for a specific time period.
+
+6)setPriority():- we can set the thead priority.
+
+7)getPriority():- we can get the thread priority.
+
+8)MIN_PRIORITY= range (1 to 4)
+NORM_PRIORITY= 5
+MAX_PRIORITY=RANGE(6 to 10)
+
+9)Daemon Thread :- It is a low priority thread which runs in the background doing garbage collection operation.
+
+10)wait() :- The thread will go to wait until some other thread doesnot notify.
+
+11)notify():- Wake up a thread which is in waiting state.
+
+12)notifyAll() :- This will wake up all the waiting threads.
+
+----------------------------------------------------------------------------------
+Example-59
+---------------------
+package Thread;
+
+public class Thread4 extends Thread
+{
+public void run()
+{
+	for(int i=1;i<=10;i++)
+	{
+		System.out.println(Thread.currentThread().getName()+" "+i);
+		try {
+			sleep(1000);
+		} catch (InterruptedException e) {
+						e.printStackTrace();
+		}
+	}
+
+}
+public static void main(String[] args) 
+{
+	Thread4 ob1=new Thread4();
+	Thread4 ob2=new Thread4();
+	Thread4 ob3=new Thread4();
+	System.out.println(ob1.isAlive());
+	ob1.start();
+	System.out.println(ob1.isAlive());
+	ob2.start();
+	ob3.start();
+}
+}
+-----------------------------------------------------------------
+Example-60
+----------------------
+package Thread;
+public class Thread5 implements Runnable
+{
+	@Override
+	public void run() {
+		
+		for(int i=1;i<=10;i++)
+		{
+			System.out.println(Thread.currentThread().getName()+" "+i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+							e.printStackTrace();
+			}
+	}
+	}
+	public static void main(String[] args) 
+	{
+		Thread5 ob=new Thread5();
+		Thread obj1=new Thread(ob,"Shubham");
+		Thread obj2=new Thread(ob,"Madhu");
+		Thread obj3=new Thread(ob,"Shilpa");
+		obj1.start();obj2.start();obj3.start();
+	}
+}
+---------------------------------------------------------------
+Example-61
+------------------------
+package Thread;
+public class Thread5 implements Runnable
+{
+	@Override
+	synchronized public void run() {
+		try {
+		String name=Thread.currentThread().getName();
+		for(int i=1;i<=10;i++)
+		{
+			System.out.println(name+"  "+i);
+			Thread.sleep(1000);
+			if(name.equals("Shubham") && (i==4))
+			{
+				wait();
+			}
+			if(name.equals("Madhu") && (i==4))
+			{
+				wait();
+			}
+			if(name.equals("Shilpa") && (i==6))
+			{
+				notifyAll(); //wakeup all waiting Thread
+			}
+			
+			  if(name.equals("Shubham") && (i==9))
+			  { notify(); //wakeup 1 thread
+			
+			  }
+			 
+		}}
+		catch(Exception ae)
+		{
+			ae.printStackTrace();
+		}
+				
+	}
+	
+	public static void main(String[] args) 
+	{
+		Thread5 ob=new Thread5();
+		Thread obj1=new Thread(ob,"Shubham");
+		Thread obj2=new Thread(ob,"Madhu");
+		Thread obj3=new Thread(ob,"Shilpa");
+		obj1.start();obj2.start();obj3.start();
+	}
+}
+-------------------------------------------------------------------------------------
+wap to find out who gets the tickects out of the 3 friends.
+There are only 2 tickets available in the counter.
+------------------------------------------------------------------------------------------
+Example-62
+-----------------------
+package Thread;
+
+public class Thread4 extends Thread
+{
+public void run()
+{
+	for(int i=1;i<=10;i++)
+	{
+		System.out.println(Thread.currentThread().getName()+" "+i);
+		try {
+			sleep(1000);
+		} catch (InterruptedException e) {
+						e.printStackTrace();
+		}
+	}
+
+}
+public static void main(String[] args) 
+{
+	Thread4 ob1=new Thread4();
+	Thread4 ob2=new Thread4();
+	Thread4 ob3=new Thread4();
+	System.out.println(ob1.isAlive());
+	ob1.start();
+	System.out.println(ob1.isAlive());
+	ob2.start();
+	ob1.setPriority(MAX_PRIORITY);
+	ob2.setPriority(MIN_PRIORITY);
+	ob3.setPriority(NORM_PRIORITY);
+	ob1.setPriority(10);
+	ob2.setPriority(1);
+	System.out.println(ob1.getPriority());
+	System.out.println(ob2.getPriority());
+	System.out.println(ob3.getPriority());
+	
+	try {
+		ob1.join();//waits for this thread to die then the other thread will start executing.
+	} catch (InterruptedException e) {
+				e.printStackTrace();
+	}
+	
+	ob3.start();
+	
+	
+}
+}
+-----------------------------------------------------------------------------------------------------
+Example-63
+----------------------
+package Thread;
+
+public class Thread6
+{
+	public static void main(String[] args) 
+	{
+	Runnable r1=new Runnable()
+			{
+		public void run()
+		{
+			for(int i=1;i<=10;i++)
+			{
+			System.out.println(i);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+					e.printStackTrace();
+			}
+			}
+		}
+			};
+			Thread t1=new Thread(r1);
+			t1.start();
+			Runnable r2=()->{
+				for(int i=1;i<=10;i++)
+				{
+				System.out.println("Merry Christmas");
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+						e.printStackTrace();
+				}
+				}
+			};
+			Thread t2=new Thread(r2);
+			t2.start();
+			t1.suspend();//the method is deprecated
+			//t1.resume();
+	}
+
+}
+----------------------------------------------------------------------------------------
+ThreadGroup:- In this we have a Parent and can have a child.
+we can have a multiple ThreadGroups.
+A thread is allowed to access information about its own thread group.
+A thread is not allowed to access information from any other thread group.
+---------------------------------------------------------------------------------------------------------------
+Example-64
+----------------------
+package Thread;
+
+public class ThreadGroupDemo implements Runnable 
+{
+
+	@Override
+	public void run() {
+	System.out.println(Thread.currentThread().getName());		
+	}
+public static void main(String[] args) 
+{
+ThreadGroupDemo obj=new ThreadGroupDemo();
+ThreadGroup tg=new ThreadGroup("First Parent Thread");
+
+ThreadGroup tg1=new ThreadGroup("Second Parent Thread");
+
+ThreadGroup tgc1=new ThreadGroup(tg,"The child Thread of First Parent Thread");
+
+
+Thread t1=new Thread(tg,obj,"First Thread");
+t1.start();
+Thread t2=new Thread(tg,obj,"Second Thread");
+t2.start();
+Thread t3=new Thread(tg,obj,"Third Thread");
+t3.start();
+System.out.println("The Thread Group name :"+tg.getName());
+tg.list();//This will display the list of Threads and there priority.The default priority is 5 and the max priority is 10
+
+Thread s1=new Thread(tg1,obj,"First Thread");
+s1.start();
+Thread s2=new Thread(tg1,obj,"Second Thread");
+s2.start();
+Thread s3=new Thread(tg1,obj,"Third Thread");
+s3.start();
+System.out.println("The Thread Group name :"+tg1.getName());
+tg1.list();
+
+Thread v1=new Thread("First Thread");
+v1.start();
+Thread v2=new Thread("Second Thread");
+v2.start();
+Thread v3=new Thread("Third Thread");
+v3.start();
+System.out.println("The Thread Group name :"+tgc1.getName());
+tgc1.list();
+
+}
+}
+--------------------------------------------------------------------------------------
+destroy():- This will destroy the thread group and the subgroups.First we have to destroy the child group then the parent.
+
+Example-65
+---------------------
+package Thread;
+
+public class DestroyDemo extends Thread
+{
+	DestroyDemo(String tName,ThreadGroup tg)
+	{
+		super(tg,tName);
+		start();
+	}
+	public void run()
+	{
+		for(int i=1;i<=10;i++)
+		{
+			System.out.println(i);
+			try {
+				sleep(1000);
+			} catch (InterruptedException e) {
+								e.printStackTrace();
+			}
+		}
+	}
+	public static void main(String[] args) throws InterruptedException {
+		ThreadGroup tg=new ThreadGroup("The parent Thread");
+		ThreadGroup tg1=new ThreadGroup(tg,"The child Thread");
+		DestroyDemo th1=new DestroyDemo("The first thread",tg);
+		DestroyDemo th2=new DestroyDemo("The first thread",tg);
+		th1.join(); //wait until the thread finish the execution.
+		th2.join();
+		tg1.destroy();
+		System.out.println(tg1.getName() +" is destroyed");
+		tg.destroy();
+		System.out.println(tg.getName() +" is destroyed");
+		}
+}
+-------------------------------------------------------------------------------------------------
+Example-66
+----------------------
+package Thread;
+
+public class DestroyDemo extends Thread
+{
+	DestroyDemo(String tName,ThreadGroup tg)
+	{
+		super(tg,tName);
+		start();
+	}
+	public void run()
+	{
+		for(int i=1;i<=10;i++)
+		{
+			System.out.println(i);
+			try {
+				sleep(1000);
+			} catch (InterruptedException e) {
+								e.printStackTrace();
+			}
+		}
+	}
+	public static void main(String[] args) throws InterruptedException
+	{
+		ThreadGroup tg=new ThreadGroup("The parent Thread");
+		ThreadGroup tg1=new ThreadGroup(tg,"The child Thread");
+		DestroyDemo th1=new DestroyDemo("The first thread",tg);
+		DestroyDemo th2=new DestroyDemo("The first thread",tg);
+		tg.interrupt();
+		th1.join(); //wait until the thread finish the execution.
+		th2.join();
+	
+		tg1.destroy();
+		System.out.println(tg1.getName() +" is destroyed");
+		tg.destroy();
+		System.out.println(tg.getName() +" is destroyed");
+		if(tg.isDaemon()==true)
+		{
+			System.out.println("The group is removed");
+		}
+			else
+			{
+				System.out.println("The group is not removed");
+		}
+		if(tg1.isDestroyed()==true)
+		{
+			System.out.println("the child is Destroyed");
+		}
+		else
+		{
+			System.out.println("the child is not destroyed");
+		}
+		
+		}
+}
+-------------------------------------------------------------------------------------------
+ Garbage Collection
+-----------------------------
+DaemonThread is a low priority thread which runs in the background to do garbage collection.
+The garbage collection is done for unreferenced objects.
+It removes unreferenced objects so that memory can be reclaimed again for use.
+It destroys the unused objects.
+Java is memory efficient because the unreferenced Objcet is removerd from the heap memory .
+for it we use finalize().
+1)The finalize() is invoked each time before the object is garbage collected.
+it is used for cleanup processing.
+It is define in Object class.
+---------------------------------------------------------------------------------------------------------
+2)gc()
+this method is used to invoke the garbage collector to do the cleanup process.
+
+It is found in the System and Runtime class.
+----------------------------------------------------------------------------------------------------- 
+Example :-66
+-------------------
+package Thread;
+
+public class GarbageDemo
+{
+public void finalize()
+{
+	System.out.println("the object is going to garbage collection");
+}
+public static void main(String[] args) {
+	GarbageDemo ob1=new GarbageDemo();
+	GarbageDemo ob2=new GarbageDemo();
+	
+	ob1=null;
+	ob2=null;
+	System.gc();
+}
+}
+-----------------------------------------------------------------------------------------------
+example-67
+---------------------
+package Thread;
+public class StudentDemo 
+{
+ int rollno;
+ String name,address;
+ public void finalize()
+ {
+ 	System.out.println("the object is going to garbage collection");
+ }
+ public StudentDemo(int rollno, String name, String address) {
+	super();
+	this.rollno = rollno;
+	this.name = name;
+	this.address = address;
+}
+
+@Override
+public String toString() {
+	return "StudentDemo [rollno=" + rollno + ", name=" + name + ", address=" + address + "]";
+}
+
+}
+-----------------------------------------------
+package Thread;
+
+public class GarbageDemo
+{
+
+public static void main(String[] args) {
+	StudentDemo ob1=new StudentDemo(101,"Madhu","hyd");
+	StudentDemo ob2=new StudentDemo(102,"Sandip","Bangalore");
+	System.out.println(ob1);
+	System.out.println(ob2);
+	ob1=null;
+	ob2=null;
+	System.gc();
+	System.out.println("the corrent value is "+ob1);
+	System.out.println("the corrent value is "+ob2);
+}
+}
+--------------------------------------------------------------------------------
+Thread pool:- It means where the Threads are strore in reserved and used when they are needed.
+The threads can be reused again and again.
+Example :- Indian Army .
+The thread pool represent a group of worker threads that are waiting for the job and can be reused.
+In the thread pool a fixed size threads are created.
+newFixedThreadPool(10); //creates a pool of 10 Threads.
+The thread from the thread pool is pulled out and assigned a job by the service provider.
+After the job is completed it is contained in the thread pool again.It is not destroyed.
+------------------------------------------------------------------------------------------------------------------
+methods of Thread pool
+-------------------------------------------
+1)newFixedThreadPool(10); //creates a pool of 10 Threads.
+
+2)newCachedThreadPool();//This method creates a new thread pool but use the previously created thread when ever they are available.
+
+3)newSingleThreadExecutor();//This method creates a new thread.
+4)ExecutorService :- It is used to create FixedThreadPool(5).
+5)Executor :-It is used to execute the threads in the Thread Pool.
+6)import java.util.concurrent :- This package is used for creating ThreadPool .
+7)!exe.isTerminated()) //it is checking each and every thread that it is terminated after the task is done
+-------------------------------------------------------------------------------------------------------------------------
+Example-68
+------------------------
+package Thread;
+
+public class ThreadPoolDemo implements Runnable
+{
+String msg;
+	ThreadPoolDemo(String x)
+	{
+		this.msg=x;
+	}
+	@Override
+	public void run() {
+	System.out.println(Thread.currentThread().getName()+" Start Thread ="+msg);
+	
+	try {
+		Thread.sleep(2000);
+	} catch (InterruptedException e) {
+			e.printStackTrace();
+	}
+	System.out.println(Thread.currentThread().getName()+" End Thread ");
+	
+	}
+
+}
+--------------------------------------------------------------------------------------------
+package Thread;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ThreadPoolMain 
+{
+public static void main(String[] args) 
+{
+ExecutorService exe=Executors.newFixedThreadPool(5); //create a fixed pool
+for(int i=1;i<10;i++)
+{
+	Runnable r1=new ThreadPoolDemo(" "+i);
+	exe.execute(r1); //execute all the threads
+}
+exe.shutdown(); //close all the threads
+while(!exe.isTerminated())
+{}
+System.out.println("Finished All Thread");
+}
+}
+--------------------------------------------------------------------------------------------------------
+concurrent :- why this package is created.
+all the threads run concurrently at the same time.This will speed up the exceution and performance is better.
+Multiple threads are running means there will be deadlock.so we generally use syncronized so that one thread will exceute and after the completion of that thread the other thread will execute.
+
+syncronized(ATM) is one of the solution of deadlock.
+
+Concurrent package takes care of Deadlock.It will allow one after the other thread to excute.
+It helps multi-tasking,efficent excution and faster excution .
+we have ConcurrentHashMap,ConcurrentHashTable also.
+------------------------------------------------------------------------------------------------------
+ConcurrentHashMap:-
+It is similar to HashMap but it is threadsafe and concurrent and we have some more methods.we have to import java.util.concurrent
+----------------------------------------------------------------------------------------
+HashTable :-It is synchronized we don't have ConcurrentHashTable.No deadLock
+HashMap :-It is not  synchronized we have ConcurrentHashMap.Threat of deadLock.
+ConcurrentLinkedQueue 
+---------------------------------------------------------------------------------------------------
+Example-69
+--------------------
+package Thread;
+
+import java.util.concurrent.ConcurrentHashMap;
+
+public class ConcurrentHashMapDemo 
+{
+public static void main(String[] args) 
+{
+	ConcurrentHashMap<String, Integer> chm=new ConcurrentHashMap<String, Integer>();
+	chm.put("sandip", 100);
+	chm.put("sunil", 40);
+	chm.put("sandy", 60);
+	chm.put("sumeet", 50);
+	chm.put("shubham", 70);
+	System.out.println(chm);
+	
+	System.out.println(chm.containsValue(100));
+	System.out.println(chm.computeIfAbsent("Madhu", k-> 30+40));//adds the record to the map
+	System.out.println(chm.computeIfAbsent("Mohan", k-> 60+40));
+	System.out.println(chm.mappingCount());
+	System.out.println(chm);
+}
+}
+----------------------------------------------------------------------
+package Thread;
+
+import java.util.Enumeration;
+import java.util.Set;
+import java.util.concurrent.*;
+
+public class ConcurrentHashMapDemo 
+{
+public static void main(String[] args) 
+{
+	ConcurrentHashMap<String, Integer> chm=new ConcurrentHashMap<String, Integer>();
+	chm.put("sandip", 100);
+	chm.put("sunil", 40);
+	chm.put("sandy", 60);
+	chm.put("sumeet", 50);
+	chm.put("shubham", 70);
+	System.out.println(chm);
+	
+	System.out.println(chm.containsValue(100));
+	System.out.println(chm.computeIfAbsent("Madhu", k-> 30+40));//adds the record to the map
+	System.out.println(chm.computeIfAbsent("Mohan", k-> 60+40));
+	System.out.println(chm.computeIfPresent("shubham", (key , val) -> val +100));
+		//in computeIfPresent if the key is present then we can modify the value.
+	System.out.println(chm.computeIfPresent("sandy", (key , val) -> val +50));
+	System.out.println(chm.mappingCount());
+	System.out.println(chm);
+	Set set=chm.entrySet();
+	System.out.println(set);
+	Enumeration en=chm.elements();
+	while(en.hasMoreElements())
+	{
+		System.out.println(en.nextElement());
+	}
+}
+}
+----------------------------------------------------------------------
+package Thread;
+//jdk1.8 feature.
+import java.util.function.BiFunction;
+
+public class BiFunctionTest 
+{
+public static void main(String[] args) 
+{
+BiFunction<Integer,Integer,Integer> fun=(x1,x2) -> x1+x2;
+Integer result = fun.apply(12,10);
+System.out.println(result);
+
+BiFunction<Integer,Integer,Double> fun1=(x1,x2) -> Math.pow(x1, x2);
+Double result1 = fun1.apply(2,10);
+System.out.println(result1);
+
+}
+}
+--------------------------------------------------------------------------------------------------------------
+T- Type of the first Argument.
+U-Type of the second Argument.  
+R-Return type of the result
+------------------------------------------------------
+package Thread;
+
+import java.util.Enumeration;
+import java.util.Set;
+import java.util.concurrent.*;
+
+public class ConcurrentHashMapDemo 
+{
+public static void main(String[] args) 
+{
+	ConcurrentHashMap<String, Integer> chm=new ConcurrentHashMap<String, Integer>();
+	
+	ConcurrentHashMap<String, Integer> chm1=chm;
+	
+	ConcurrentHashMap<String, Integer> chm2=new ConcurrentHashMap<String, Integer>();
+	chm.put("sandip", 100);
+	chm.put("sunil", 40);
+	chm.put("sandy", 60);
+	
+	chm2.put("sumeet", 50);
+	chm2.put("shubham", 70);
+	System.out.println(chm);
+	System.out.println(chm2);
+	
+	System.out.println("we are comparing 2 maps :"+chm.equals(chm1));
+	System.out.println("we are comparing 2 maps :"+chm.equals(chm2));
+}
+}
+--------------------------------------------------------------------------
+ConcurrentLinkedQueue:-
+--------------------------------------
+The data will be FIFO basis.
+We can add elements to the head and tail of the Queue.
+-----------------------------
+Example-70
+---------------------
+package Thread;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+public class ConcurrentLinkedQueueDemo 
+{
+public static void main(String[] args) 
+{
+	ConcurrentLinkedQueue<Integer> clq=new ConcurrentLinkedQueue<Integer>();
+	for(int i=1;i<=10;i++)
+	clq.add(i);
+	clq.offer(11); //add element to the tail
+	clq.offer(12);
+	System.out.println(clq);
+	if(clq.contains(4)) //checks if present or not
+	{
+		System.out.println("the queue contains 4");
+	}
+	else
+	{
+		System.out.println("the queue donot contains 4");
+			
+	}
+	clq.remove(5); // removes particular element from the queue
+	System.out.println(clq);
+	clq.removeAll(clq); //removes all the elements from the queue.
+	System.out.println(clq);
+	
+}
+}
+-----------------------------------------------------------------------------------------------
+package Thread;
+
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+public class StudentQueueDemo
+{
+String rollno,name,college;
+
+public StudentQueueDemo(String rollno, String name, String college)
+{
+	super();
+	this.rollno = rollno;
+	this.name = name;
+	this.college = college;
+}
+
+@Override
+public String toString() {
+	return "StudentQueueDemo [rollno=" + rollno + ", name=" + name + ", college=" + college + "]";
+}
+public static void main(String[] args)
+{
+	StudentQueueDemo ob1=new StudentQueueDemo("MCA101","sandip","ABC");
+	StudentQueueDemo ob2=new StudentQueueDemo("MCA102","sunil","ABC");
+	StudentQueueDemo ob3=new StudentQueueDemo("MCA103","shubham","ABC");
+	StudentQueueDemo ob4=new StudentQueueDemo("MCA104","satish","ABC");
+ConcurrentLinkedQueue<StudentQueueDemo> clq=new ConcurrentLinkedQueue<StudentQueueDemo>();
+clq.add(ob1);
+clq.add(ob2);
+clq.add(ob3);
+clq.add(ob4);
+for(StudentQueueDemo stq:clq)
+	System.out.println(stq);
+
+
+}
+}
+--------------------------------------------------------------------------------------------------
+package Thread;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+public class QueueListDemo 
+{
+public static void main(String[] args) 
+{
+ConcurrentLinkedQueue<Integer> clq=new ConcurrentLinkedQueue<Integer>();
+List k=new ArrayList();
+for(int i=1;i<=25;i++)
+	clq.add(i);
+System.out.println(clq);
+for(int i=1;i<=10;i++)
+{
+	int j=i*5;
+	k.add(j);
+}
+clq.retainAll(k);//all the elements in the queue will are present in the list will be display
+System.out.println(clq);
+}
+}
+----------------------------------------------------------------------------------------
+wap to enter a queue of students who appered for exam.
+and list of students who qualified for the exam.
+------------------------------------------------------------------------
+package Thread;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
+public class QueueListDemo 
+{
+public static void main(String[] args) 
+{
+ConcurrentLinkedQueue<String> clq=new ConcurrentLinkedQueue<String>();
+List<String> k=new ArrayList<String>();
+System.out.println("Student wrote Exam");
+clq.add("sandip");
+clq.add("sunil");
+clq.add("shubham");
+clq.add("Madhu");
+k.add("sunil");
+k.add("Madhu");
+System.out.println(clq);
+System.out.println("Student qualified");
+clq.retainAll(k);//all the elements in the queue will are present in the list will be display
+System.out.println(clq);
+}
+}
+-----------------------------------------------------------------------------------------
+Example-71
+-----------------
+package Thread;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+class Tasks implements Runnable
+{
+	String taskName;
+
+	public Tasks(String taskName) 
+	{
+			this.taskName = taskName;
+	}
+
+	@Override
+	public void run()
+	{
+	try
+	{
+		for (int j=0;j<5;j++)
+		{
+			if(j==0)
+			{
+				Date dt=new Date();
+				SimpleDateFormat sdf=new SimpleDateFormat("hh : mm : ss");
+				System.out.println("The start time of :"+  taskName +"  "+sdf.format(dt));
+			}
+			else
+			{
+				Date dt=new Date();
+				SimpleDateFormat sdf=new SimpleDateFormat("hh : mm : ss");
+				System.out.println("The execution time of :"+  taskName +"  "+sdf.format(dt));
+							}
+	Thread.sleep(1000);
+		}
+		System.out.println(taskName +" is Completed");
+	}
+		catch(Exception ae)
+	{
+			ae.printStackTrace();
+	}	}}
+public class ThreadPoolExample
+{
+public static void main(String[] args) 
+{
+Tasks rb1=new Tasks("task 1");
+Tasks rb2=new Tasks("task 2");
+Tasks rb3=new Tasks("task 3");
+Tasks rb4=new Tasks("task 4");
+Tasks rb5=new Tasks("task 5");
+ExecutorService pl=Executors.newFixedThreadPool(5);
+pl.execute(rb1);
+pl.execute(rb2);
+pl.execute(rb3);
+pl.execute(rb4);
+pl.execute(rb5);
+pl.shutdown();
+
+}
+}
+----------------------------------------
+o/p:-
+The start time of :task 2  04 : 32 : 59
+The start time of :task 5  04 : 32 : 59
+The start time of :task 4  04 : 32 : 59
+The start time of :task 1  04 : 32 : 59
+The start time of :task 3  04 : 32 : 59
+The execution time of :task 5  04 : 33 : 00
+The execution time of :task 2  04 : 33 : 00
+The execution time of :task 4  04 : 33 : 00
+The execution time of :task 1  04 : 33 : 00
+The execution time of :task 3  04 : 33 : 00
+The execution time of :task 5  04 : 33 : 01
+The execution time of :task 2  04 : 33 : 01
+The execution time of :task 4  04 : 33 : 01
+The execution time of :task 1  04 : 33 : 01
+The execution time of :task 3  04 : 33 : 01
+The execution time of :task 5  04 : 33 : 02
+The execution time of :task 2  04 : 33 : 02
+The execution time of :task 1  04 : 33 : 02
+The execution time of :task 4  04 : 33 : 02
+The execution time of :task 3  04 : 33 : 02
+The execution time of :task 5  04 : 33 : 03
+The execution time of :task 2  04 : 33 : 03
+The execution time of :task 1  04 : 33 : 03
+The execution time of :task 4  04 : 33 : 03
+The execution time of :task 3  04 : 33 : 03
+task 1 is Completed
+task 5 is Completed
+task 2 is Completed
+task 4 is Completed
+task 3 is Completed
+-------------------------------------------------------------------------
+Syncronized Thread :- One Thread exceute and after its execution the second thread will start execution.
+------------------------------------------------------------------------------------------
+DeadLock:-
+
+public void run()
+{
+Syncronized Thread1 //this will first start
+sleep(1000);//block state
+Syncronized Thread2 //Thread 2 will be waiting for thread1 to complete its execution so that it will start excuting
+}
+
+This is the condition for DeadLock.
+---------------------------------------------------------------------------------------------
+Example-71
+--------------------
+package Thread;
+public class SecThread implements Runnable 
+{
+	Object ob1;
+	Object ob2;
+	public SecThread(Object ob1, Object ob2) 
+	{
+		super();
+		this.ob1 = ob1;
+		this.ob2 = ob2;
+	}
+	@Override
+	public void run() {
+	String name=Thread.currentThread().getName();
+		System.out.println(name +" Putting lock on ob1");
+		synchronized(ob1)
+		{
+			System.out.println(name +" Putting lock on ob1");
+			work();
+			System.out.println(name +" Putting lock on ob2");
+			synchronized(ob2)
+			{
+			System.out.println(name +" Putting lock on ob2");
+			work();
+		}
+			
+			System.out.println(name+ "Lock Released on ob1");
+		}
+		System.out.println(name+ "Lock Released on ob2");
+		System.out.println("Finish Excecution");
+	}
+void work()
+{
+	try {
+		Thread.sleep(30000);
+	} catch (InterruptedException e) {
+		e.printStackTrace();
+	}
+	
+}
+}
+-------------------------------------------------------------------------------------
+package Thread;
+public class ThreadDeadlock 
+{
+public static void main(String[] args)throws Exception
+{
+Object ob1=new Object();
+Object ob2=new Object();
+Object ob3=new Object();
+
+Thread t1=new Thread(new SecThread(ob1,ob2),"t1");
+Thread t2=new Thread(new SecThread(ob2,ob3),"t2");
+Thread t3=new Thread(new SecThread(ob3,ob1),"t3");
+t1.start();
+Thread.sleep(5000);
+t2.start();
+Thread.sleep(5000);
+t3.start();
+Thread.sleep(5000);
+}
+}
+----------------------------------------------------------------
+synchronized there are 3 types
+--------------------------------------
+1)synchronized method :-DeadLock will be for the object.
+2)synchronized block:-DeadLock will be for the object.
+3)static synchronized:-There will be no object created for the class.DeadLock will be for the class.
+----------------------------------------------------
+synchronized block
+-------------------------------------------
+package Thread;
+
+class Table
+{
+	void printTable(int n)
+	{
+		synchronized(this)
+		{
+			for(int i=1;i<=5;i++)
+			{
+				System.out.println(i*n);
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+				e.printStackTrace();
+				}
+			}
+		}
+	}
+}
+class Thread1 extends Thread
+{
+	Table t;
+	Thread1(Table t)
+	{
+		this.t=t;
+			}
+	public void run()
+	{
+		t.printTable(5);
+	}
+}
+
+class Thread2 extends Thread
+{
+	Table t;
+	Thread2(Table t)
+	{
+		this.t=t;
+			}
+	public void run()
+	{
+		t.printTable(50);
+	}
+}
+
+public class synchronizedBlockDemo 
+{
+public static void main(String[] args)
+{
+Table obj=new Table();
+Thread1 t1=new Thread1(obj);
+Thread2 t2=new Thread2(obj);
+t1.start();t2.start();
+}
+}
+--------------------------------------------------------------------------------
+static synchronized
+-----------------------------------------
+package Wednesday;
+class Table1
+{
+	synchronized static void printTable(int n)
+	{
+		for(int i=1;i<=10;i++)
+			System.out.println(i*n);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+					e.printStackTrace();
+		}
+			}
+}
+class Thread1 extends Thread
+{
+	public void run()
+	{
+		Table1.printTable(10);
+	}
+}
+
+class Thread2 extends Thread
+{
+	public void run()
+	{
+		Table1.printTable(100);
+	}
+}
+class Thread3 extends Thread
+{
+	public void run()
+	{
+		Table1.printTable(200);
+	}
+}
+public class StaticSysDemo 
+{
+public static void main(String[] args) {
+	Thread1 t1=new Thread1();
+	Thread2 t2=new Thread2();
+	Thread3 t3=new Thread3();
+	t1.start();t2.start();t3.start();
+	}
+}
+------------------------------------------------------------------------------------------------------
+File 
+-------------
+1)It is used to store and manage data.
+2)Reading and writing of data into a file can be done using byte stream or character stream.(flow from source to destination)
+3)The process of reading and writing object into a file is known as serialization and de-serialization.
+4)we will be using java.io package.
+5)There are 2 types of stream by which we can read and write data into a file.
+a)byte stream
+b)character stream
+Under this byte stream and charcater stream we have different class.
+6)While working with file we have to handle exception because it throws checked Exception.
+Exceptions :- EOFException,FileNotFoundException,InterruptedIOException,IOException.
+----------------------------------------------------------------------------------
+We have some file class methods
+--------------------------------------------------
+Example-72
+-------------------
+//we have to create a file on the project folder
+package File;
+import java.io.*;
+import java.util.*;
+public class FileExample1 
+{
+public static void main(String[] args) 
+{
+	Scanner ob=new Scanner(System.in);
+System.out.println("Enter the file name");	
+String fname=ob.next();
+File f=new File(fname);
+System.out.println("the file name is "+f.getName());
+System.out.println("the file path is "+f.getPath());
+System.out.println("the file obsolute path is "+f.getAbsolutePath());
+System.out.println("the file is existing "+f.exists());
+System.out.println("the file is in read mode "+f.canRead());
+System.out.println("the file is in write mode "+f.canWrite());
+System.out.println("the file is in execute mode "+f.canExecute());
+System.out.println("the file length is "+f.length());
+System.out.println("this is a file  "+f.isFile());
+System.out.println("this is a directory "+f.isDirectory());
+}
+}
+-----------------------------------------------------------------------------------------
+Byte stream(10101001001)
+---------------------
+There are 2 abstract classes.
+--------------------------------------------
+1)InputStream-reading data from the file.
+2)OutputStream-writing data into the file.
+
+we have some classes 
+1)BufferInputStream/BufferOutputStream
+2)FileInputStream/FileOutputStream
+3)ObjectInputStream/ObjectOutputStream ----serialization and de-serialization.
+4)DataInputStream/DataOutputStream ----to read and write primative data type into the file.
+------------------------------------------------------------------
+Example-73
+-----------------------
+Reading data from the keyboard
+----------------------------------------------
+package File;
+import java.io.*;
+public class FileExample2 
+{
+public static void main(String[] args) throws IOException
+{
+DataInputStream dis=new DataInputStream(System.in);
+FileOutputStream fos=new FileOutputStream("student.txt");//file not found means it will automatically create a file
+System.out.println("enter the data");
+int data;
+while((data=dis.read())!='\n')  //data is internally converted into byte format and while writing it will again convert into 				//character
+{
+	fos.write(data);
+}
+System.out.println("file writing over");
+dis.close(); //pointer will be released.
+fos.close();
+}
+}
+--------------------------------------------------------------------------------
+Reading data from one file and writing data into another file.
+--------------------------------------------------------------------------------
+package File;
+import java.io.*;
+public class FileExample3 
+{
+public static void main(String[] args)throws Exception
+{
+	FileInputStream fis=new FileInputStream("student.txt");//read from the file(it should exists or have to create)
+	FileOutputStream fos=new FileOutputStream("student1.txt");//write data into the file.(automatic create)
+	int data;
+	while((data=fis.read())!=-1)//-1 indicates end of the file.
+	{
+		fos.write(data);
+	}
+	fis.close();fos.close();
+	System.out.println("file copied...................");
+}
+}
+--------------------------------------------------------------------------------------------------------
+package File;
+import java.io.*;
+public class FileExample4 
+{
+public static void main(String[] args) throws NumberFormatException, IOException 
+{//reading will be in character format only.(Reader/Writer)
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));//like scanner intro in jdk1.5
+System.out.println("enter empno");
+int empno=Integer.parseInt(br.readLine());
+System.out.println("enter empname");
+String name=br.readLine();
+System.out.println("enter address");
+String add=br.readLine();
+System.out.println("enter salary");
+float sal=Float.parseFloat(br.readLine());
+System.out.println("the empno is :"+empno);
+System.out.println("the name is :"+name);
+System.out.println("the address is :"+add);
+System.out.println("the salary is :"+sal);
+
+}
+}
+-------------------------------------------------------------------
+The process of reading and writing object into a file is known as serialization and de-serialization.
+-----------------------------------------------------------------------
+ObjectInputStream/ObjectOutputStream ----serialization and de-serialization.
+-------------------------------------------------------------------------------
+Serializable -it is a marker interface.There will be no abstract method in it.
+---------------------------
+example-
+package File;
+
+import java.io.Serializable;
+
+public class Student implements Serializable 
+{
+int rollno;
+String name,address;
+}
+---------------------------------------------------------------------------------
+package File;
+import java.io.*;
+public class SerializableDemo 
+{
+	public static void main(String[] args) throws IOException
+	{
+	Student obj=new Student();
+	obj.rollno=101;
+	obj.name="sandip";
+	obj.address="bangalore";
+	FileOutputStream fos=new FileOutputStream("object.txt");
+	ObjectOutputStream os=new ObjectOutputStream(fos);
+	os.writeObject(obj);
+	fos.close();os.close();
+	System.out.println("Object written into the file.......");
+	}
+}
+---------------------------------------------------------------------------------
+package File;
+import java.io.*;
+public class DeserializableDemo 
+{
+public static void main(String[] args) throws Exception
+{
+	Student s1=null;
+	FileInputStream fos=new FileInputStream("object.txt");
+	ObjectInputStream os=new ObjectInputStream(fos);
+	s1=(Student) os.readObject();
+	fos.close();os.close();
+System.out.println("the rollno is :"+s1.rollno);
+System.out.println("the name is :"+s1.name);
+System.out.println("the address is :"+s1.address);
+}}
+---------------------------------------------------------------------------------------
+transient :- it is a keyword .this will not be Serialized.
+------------------------------------------------------------------------------------------------
+o/p:-int
+the rollno is :0
+the name is :sandip
+the address is :bangalore
+------------------------------------------------------
+o/p:-String
+the rollno is :101
+the name is :null
+the address is :bangalore
+------------------------------------------------------
+wap to store data of few employees into a files and retrive it using serialization and de-serialization.
+employee class (empno,name,salary,designation)
+----------------------------------------------------------------------------------
+character stream
+------------------------------
+1)Reader 2)writer
+--------------------------------------------
+example:-
+-------------------
+package File;
+import java.io.*;
+public class FileExample5 
+{
+public static void main(String[] args) throws IOException
+{
+FileReader fr=new FileReader("student1.txt");
+BufferedReader br=new BufferedReader(fr);
+String x;
+while((x=br.readLine())!=null) //null indicates EOF 
+{
+	System.out.println(x);
+}
+}
+}
+---------------------------------------------------
+CharArrayWriter/CharArrayReader
+------------------------------------------------------------
+CharArrayWriter :- it is used to write common data to multiple files.
+
+package File;
+import java.io.*;
+public class FileExample6 
+{
+public static void main(String[] args)throws Exception
+{
+	CharArrayWriter caw=new CharArrayWriter();
+	caw.write("This is an example of File");
+	FileWriter f1=new FileWriter("test1.txt");
+	FileWriter f2=new FileWriter("test2.txt");
+	FileWriter f3=new FileWriter("test3.txt");
+	FileWriter f4=new FileWriter("test4.txt");
+	FileWriter f5=new FileWriter("test5.txt");
+	caw.writeTo(f1);
+	caw.writeTo(f2);
+	caw.writeTo(f3);
+	caw.writeTo(f4);
+	caw.writeTo(f5);
+	f1.close();f2.close();f3.close();f4.close();f5.close();
+	System.out.println("success............");
+}
+}
+-----------------------------------------------------------------------------------------------------------
+CharArrayReader:- It reads array of character.
+--------------------------------------------------------------------
+package File;
+import java.io.*;
+public class FileExample7 
+{
+public static void main(String[] args) throws Exception
+{
+	char x[]= {'t','h','i','s','a','f','i','l','e','p','r','g'};
+	CharArrayReader red=new CharArrayReader(x);
+int y=0;
+while((y=red.read())!=-1)
+{
+	System.out.println(y);
+	char p=(char) y;
+	System.out.println(p);
+	System.out.println("*********************************");
+}
+}
+}
+----------------------------------------------------------------------------------------------------------------------
+JDBC :- Java database connectivity
+Oracle 10xe/MySql--structured Data(rows and columns)
+MongoDB --unstructured Data(facebook,paytm)
+-------------------------
+JDBC we have 2 types of driver:-
+1)Thick Driver
+2)Thin Driver
+why we require driver.
+1)java(byte code) -------------Driver(interpreter)-------------------Oracle/Mysql/sqlserver(ASCII code)
+
+1)Thick Driver 
+type1 driver-[java prg---odbc driver----Database]
+ODBC -open database connectivity.It comes with the o/s.
+-----------------------------------------------------------------------------------------
+type2 driver-[java prg---driver----database]This is vendor specific.  
+-------------------------------------------------------------------------------------------
+type3 driver-[Java prg ---middleware server---Databse] This is vendor specific
+---------------------------------------------------------------------------------------
+2)Thin Driver
+type4 driver-[java prg---driver----database].The driver is purely java and interacts directly with the database and is faster.
+
+----------------------------------------------------------------------------------------------
+We have to import java.sql package and handle the SQLException.
+
+There are 2 classes and 8 interfaces
+classes :- DriverManager,Types
+Interfaces :- Driver,Connection,Statement,PreparedStatement,CallableStatement,ResultSet,ResultSetMetaData,DatabaseMetaData
+-------------------------------------------------------------------------
+When we do static data crud (create,read,update,delete) operartion we  use Statement.
+When we do dynamic data crud (create,read,update,delete) operartion we  use PreparedStatement.
+When we work with function,procedure we use CallableStatement.
+------------------------------------------------------------------------------------------------------
+Example :- 
+import java.sql;
+class student
+{
+main()throws Exception
+{
+1)to load the driver
+2)to get connection from DriverManager
+3)Statement()/preparedStatement(pass the sql query)
+4)execute(pass the sql query)/execute();
+}}
+---------------------------------------------------------------------------------
+Example-1
+----------------------
+Insert
+------------------
+package JDBC;
+import java.sql.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+	//to load the driver
+	Class.forName("oracle.jdbc.driver.OracleDriver");
+	//to get connection from DriverManager
+	Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+	//jdbc--protocal ,
+	//oracle is ---database,
+	//thin--type 4 driver,
+	//localhost--both server and client reside in the same machine
+	//localhost (IP address of the server :123.12.34.4),default port no :1521,
+	//xe is the database name,
+	//system--username
+	//1234 is the password.
+	//Statement()/preparedStatement(pass the sql query)
+	Statement st=con.createStatement();
+	//execute(pass the sql query)/execute();
+	st.execute("insert into marlabsstud values(101,'Shubam','Bangalore')");//static query
+	System.out.println("Row Inserted");		
+}
+}
+-----------------------------------------------------------------------------------------------------
+create table and insert data
+----------------------------------------
+import java.sql.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cognizant","root","1234");
+		Statement st=con.createStatement();
+		//st.execute("create table employee23(empid int,name varchar(30),address varchar(30))");
+		st.execute("insert into employee23 value(101,'sandip','Pune')");
+		System.out.println("Successful");		
+}
+}
+----------------------------------------------------------------------------------------------------------------------------------
+update data
+-------------------
+package JDBC;
+import java.sql.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/cognizant","root","1234");
+		Statement st=con.createStatement();
+		st.execute("update employee2023 set address='Kolkotta' where empno=101");
+		System.out.println("Row updated");		
+}
+}
+---------------------------------------------------------------------------------
+Delete
+-------------------
+package JDBC;
+import java.sql.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+		Statement st=con.createStatement();
+		st.execute("delete marlabsstud where empno=101");
+		System.out.println("Row deleted");		
+}
+}
+--------------------------------------------------------------------------------------------------------
+ResultSet rs=st.executeQuery("select * from marlabsstud");
+All the data from the marlabsstud table will be stored in the ResultSet variable rs.
+we will use a while loop to eterate the data.The pointer will move from the first row till the last row.
+-----------------
+select
+------------------------
+package JDBC;
+import java.sql.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+		Statement st=con.createStatement();
+		ResultSet rs=st.executeQuery("select * from marlabsstud");
+		while(rs.next())
+		{
+		System.out.println(rs.getInt(1)+"   "+rs.getString(2)+"  "+rs.getString(3));	
+		}
+		
+}
+}
+---------------------------------------------------------------------------------------
+types of execute methods
+----------------------------------------
+1)executeQuery() ----select
+2)exceuteUpdate() -----update(returns 0 or 1)
+3)excute() ----insert,update,delete,create (returns true,false);
+---------------------------------------------------------------------------------------------
+
+1)Oracle 10xe 
+2)MySql 
+3)MongoDB
+-------------------------------------------------
+Path where you can find the ojdbc14.jar (driver)
+
+C:\oraclexe\app\oracle\product\10.2.0\server\jdbc\lib
+-----------------------------------------------------------------------------
+package JDBC;
+import java.sql.*;
+import java.util.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+		Scanner ob=new Scanner(System.in);
+		System.out.println("enter empno,name,address");
+		int empno=ob.nextInt();
+		String name=ob.next();
+		String address=ob.next();
+		PreparedStatement st=con.prepareStatement("insert into marlabsstud values(?,?,?)");
+		st.setInt(1,empno);//1 represent the first ?
+		st.setString(2,name);//2 represent the second ?
+		st.setString(3,address);//3 represenr the third ?
+		st.execute();
+		System.out.println("row inserted");
+}
+}
+---------------------------------------------------------------------------------------------
+Basic of Oracle
+---------------------------
+creating table
+-----------------------
+create table marlabsstud(empno number, name varchar2(50),address varchar2(100))
+
+select data from the table 
+------------------------------------------
+select * from marlabsstud;
+
+insert data into table
+-----------------------------
+insert into marlabsstud values(103,'shubham','Bangalore');
+
+update data in the table
+---------------------------------
+update marlabsstud set address='hyderabad' where empno=103;
+
+delete data from the table
+-----------------------------
+delete marlabsstud where empno=103
+
+select empno,name from marlabsstud;
+
+the table will be deleted
+-----------------------------------
+drop table marlabsstud; 
+
+table structure will be present but rows will be deleted
+-------------------------------------------------------------
+truncate table marlabsstud;
+
+add a column phoneno to marlabsstud
+-------------------------------------------
+alter table marlabsstud add phoneno number
+
+how to update phoneno
+--------------------------
+update marlabsstud set phoneno='6543435' where empno=102;
+
+how to drop the column
+---------------------------
+alter table marlabsstud drop column phoneno;
+----------------------------------------------------------------------------------------------------------------------------
+update
+---------------
+package JDBC;
+import java.sql.*;
+import java.util.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+		Scanner ob=new Scanner(System.in);
+		System.out.println("enter name,address and empno which you want to update");
+		String name=ob.next();
+		String address=ob.next();
+		int empno=ob.nextInt();
+		PreparedStatement st=con.prepareStatement("update marlabsstud set name=?,address=? where empno=?");
+		st.setString(1,name);
+		st.setString(2,address);
+		st.setInt(3,empno);
+		st.execute();
+		System.out.println("row updated");
+}
+}
+----------------------------------------------------------------------------------------------
+delete
+--------------
+package JDBC;
+import java.sql.*;
+import java.util.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+		Scanner ob=new Scanner(System.in);
+		System.out.println("enter empno which you want to delete");
+		int empno=ob.nextInt();
+		PreparedStatement st=con.prepareStatement("delete marlabsstud where empno=?");
+		st.setInt(1,empno);
+		st.execute();
+		System.out.println("row deleted");
+		}
+}
+
+-----------------------------------------------------------------------------------------------------
+package JDBC;
+import java.sql.*;
+import java.util.*;
+public class Student 
+{
+public static void main(String[] args)throws Exception
+{
+	Scanner ob=new Scanner(System.in);
+	System.out.println("enter empno,name,address,DOJ");
+	int empno=ob.nextInt();
+	String name=ob.next();
+	String address=ob.next();
+	String DOJ=ob.next();
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","1234");
+	/*	PreparedStatement st=con.prepareStatement("create table marlabemp(empno number,name varchar2(30),address varchar2(30),DOJ date)");
+		st.execute();
+		System.out.println("table created");*/
+		PreparedStatement st=con.prepareStatement("insert into marlabemp values(?,?,?,?)");
+		st.setInt(1, empno);
+		st.setString(2,name);
+		st.setString(3,address);
+		st.setString(4,DOJ);
+		st.execute();
+		System.out.println("row inserted");
+		
+		}
+}
+
+---------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
